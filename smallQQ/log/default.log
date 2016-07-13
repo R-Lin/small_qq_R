@@ -441,3 +441,27 @@
 2016-07-13 17:46:49,448 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"baby神发了2条信息,居然让我复读失败"],"from_uin":2041395966,"group_code":2041395966,"msg_id":23741,"msg_type":0,"send_uin":2858812022,"time":1468403195,"to_uin":659030105}}],"retcode":0}
 
 2016-07-13 17:48:16,411 [ERROR] No JSON object could be decoded
+2016-07-13 17:48:37,733 [ERROR] No JSON object could be decoded
+2016-07-13 17:48:37,734 [ERROR] ValueError: 140 lines
+2016-07-13 17:56:36,469 [ERROR] No JSON object could be decoded
+2016-07-13 17:56:36,470 [ERROR] ValueError: 140 lines
+2016-07-13 17:59:57,079 [ERROR] No JSON object could be decoded
+2016-07-13 17:59:57,081 [ERROR] ValueError: 140 lines
+2016-07-13 18:02:42,483 [ERROR] No JSON object could be decoded
+2016-07-13 18:02:42,483 [ERROR] ValueError: 140 lines
+2016-07-13 18:08:44,096 [ERROR] KeyError: 131 lines
+2016-07-13 18:08:44,096 [ERROR] 'retcode'
+2016-07-13 18:09:15,552 [ERROR] KeyError: 131 lines
+2016-07-13 18:09:15,552 [ERROR] 'retcode'
+2016-07-13 18:19:25,510 [ERROR] KeyError: 131 lines
+2016-07-13 18:19:25,510 [ERROR] 'retcode'
+2016-07-13 18:22:10,358 [ERROR] KeyError: 131 lines
+2016-07-13 18:22:10,359 [ERROR] 'retcode'
+2016-07-13 18:22:30,367 [ERROR] KeyError: 131 lines
+2016-07-13 18:22:30,368 [ERROR] 'retcode'
+2016-07-13 18:22:50,418 [ERROR] No JSON object could be decoded
+2016-07-13 18:22:50,420 [ERROR] ValueError: 140 lines
+2016-07-13 18:24:28,349 [ERROR] KeyError: 131 lines
+2016-07-13 18:24:28,349 [ERROR] 'retcode'
+2016-07-13 18:25:19,895 [ERROR] KeyError: 131 lines
+2016-07-13 18:25:19,897 [ERROR] 'retcode'
