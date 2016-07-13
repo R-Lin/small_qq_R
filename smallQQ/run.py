@@ -1,13 +1,14 @@
-#coding=utf-8
+# coding:utf8
 import re
 import sys
 import random
 import time
 import json
-import ini
 import os
 import cPickle
 import requests
+import initialize
+import learning
 
 class SmartQQ:
     """
@@ -15,13 +16,14 @@ class SmartQQ:
     """
     def __init__(self):
         self.qtwebqq = None
+        self.learn = learning.Learn()
         self.cookie_file = "cookies.txt"
         self.clientid = 53999199
         self.psessionid = ''
         self.vfwebqq = None
         self.para_dic = {}
-        self.url_request = ini.get_req()
-        self.log = ini.log()
+        self.url_request = initialize.get_req()
+        self.log = initialize.log()
         self.groupName = {}
         self.groupMember = {}
         self.url_dic = {
@@ -167,18 +169,22 @@ class SmartQQ:
                                 words = words.encode('utf8', 'ignore')
                                 if '/awk/' in group_name:
                                     print '###########################TEST###########################'
-                                    print group_name, from_uin
-                                    if re.findall(r'[,?A-z]', words):
-                                        # print type(words)
-                                        send_result = json.loads(self.send_messages(from_uin, '我又出来了'))
-                                        if send_result['retcode'] == 100001:
-                                            print "Send failed ! retry one time"
-                                            self.send_messages(from_uin, '貌似有人在召唤我! 关键词\\< %s \\> ' % words)
-                                    num += 1
-                                    print self.groupMember[from_uin][send_uid],  ":" + words
-                                else:
-                                    print group_name,
-                                    print self.groupMember[from_uin][send_uid],  ":" + words
+                                    result = self.learn.learn_or_call(words)
+                                    if result:
+                                        print self.send_messages(from_uin, result)
+                                    # if re.findall(r'[,?A-z]', words):
+                                    #     # print type(words)
+                                    #     send_result = json.loads(self.send_messages(from_uin, '[[ 通知 ]] : %s被放出来了'%(
+                                    #         self.groupMember[from_uin][send_uid].encode('utf8')
+                                    #     )))
+                                    #     print send_result
+                                    #     send_result = json.loads(self.send_messages(from_uin, '[\"face\", 14]'))
+                                    #     if send_result['retcode'] == 100001:
+                                    #         print "Send failed ! retry one time"
+                                    #         print self.send_messages(from_uin, '貌似有人在召唤我! 关键词\\< %s \\> ' % words)
+                                    # num += 1
+                                print group_name,
+                                print self.groupMember[from_uin][send_uid],  ":" + words
 
                 except KeyError as m:
                     if m.message != 'result':
@@ -283,7 +289,6 @@ class SmartQQ:
     def main(self):
         self.get_comm_para()
         self.login()
-
 
 a = SmartQQ()
 a.main()

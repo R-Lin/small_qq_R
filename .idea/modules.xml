@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/smallQQ_R.iml" filepath="$PROJECT_DIR$/.idea/smallQQ_R.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/smallQQ.iml" filepath="$PROJECT_DIR$/.idea/smallQQ.iml" />
     </modules>
   </component>
 </project>
