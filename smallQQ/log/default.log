@@ -436,3 +436,8 @@
 2016-07-13 17:39:49,273 [ERROR] ValueError: 140 lines
 2016-07-13 17:40:41,434 [ERROR] No JSON object could be decoded
 2016-07-13 17:40:41,436 [ERROR] ValueError: 140 lines
+2016-07-13 17:46:49,448 [ERROR] string indices must be integers
+2016-07-13 17:46:49,448 [ERROR] TypeError: 176 lines
+2016-07-13 17:46:49,448 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"baby神发了2条信息,居然让我复读失败"],"from_uin":2041395966,"group_code":2041395966,"msg_id":23741,"msg_type":0,"send_uin":2858812022,"time":1468403195,"to_uin":659030105}}],"retcode":0}
+
+2016-07-13 17:48:16,411 [ERROR] No JSON object could be decoded

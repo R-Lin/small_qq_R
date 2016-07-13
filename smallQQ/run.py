@@ -170,7 +170,7 @@ class SmartQQ:
                                     print group_name, from_uin
                                     if re.findall(r'[,?A-z]', words):
                                         # print type(words)
-                                        send_result = self.send_messages(from_uin, '我又出来了')
+                                        send_result = json.loads(self.send_messages(from_uin, '我又出来了'))
                                         if send_result['retcode'] == 100001:
                                             print "Send failed ! retry one time"
                                             self.send_messages(from_uin, '貌似有人在召唤我! 关键词\\< %s \\> ' % words)
