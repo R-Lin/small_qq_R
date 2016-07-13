@@ -1,4 +1,4 @@
-#coding:utf8
+#coding=utf-8
 import re
 import sys
 import random
@@ -8,7 +8,6 @@ import ini
 import os
 import cPickle
 import requests
-
 
 class SmartQQ:
     """
@@ -83,7 +82,6 @@ class SmartQQ:
         if os.path.exists(self.cookie_file):
             cookies_file_mtime = os.stat(self.cookie_file).st_mtime
             during_time = time.time() - cookies_file_mtime
-            print during_time
             if during_time <= 7200:
                 with open(self.cookie_file) as f:
                     cookies = requests.utils.cookiejar_from_dict(
@@ -147,14 +145,13 @@ class SmartQQ:
             while 1:
                 num = 0
                 try:
-                    reponse = self.url_request.post(self.url_dic['pollMessage'], data=data).text
+                    reponse = self.url_request.post(self.url_dic['pollMessage'], data=data).content
                     mess = json.loads(reponse)
                     # messages = mess['result'][0]['value']    # result set
                     # print "149 messages_info", mess
                     for messages in mess['result']:
                         from_uin = str(messages['value']['from_uin'])
                         words = messages['value']['content'][1]
-
                         if messages['poll_type'] == 'message':
                             self.log.info("The 136 line %s : %s" % (from_uin, words))
                         elif messages['poll_type'] == 'group_message':
@@ -164,19 +161,24 @@ class SmartQQ:
                             send_uid = str(messages['value']['send_uin'])
                             group_name = self.groupName[from_uin]['name']
                             time.sleep(4)
-                            if '/awk/' in group_name:
-                                print '###########################TEST###########################'
-                                print group_name, from_uin
-                                if isinstance(words, list):
-                                    print type(words)
-                                    print 172, words
-                                elif re.findall(r'[Rr!]', words):
-                                    print self.send_messages(from_uin, '貌似有人在召唤我! 关键词\\< %s \\> '% words.encode('utf8', 'ignore')),
-                                num += 1
-                                print self.groupMember[from_uin][send_uid] + ":" + words
+                            if isinstance(words, list):
+                                print 172, words
                             else:
-                                print group_name,
-                                print self.groupMember[from_uin][send_uid] + ":" + words
+                                words = words.encode('utf8', 'ignore')
+                                if '/awk/' in group_name:
+                                    print '###########################TEST###########################'
+                                    print group_name, from_uin
+                                    if re.findall(r'[,?A-z]', words):
+                                        # print type(words)
+                                        send_result = self.send_messages(from_uin, '我又出来了')
+                                        if send_result['retcode'] == 100001:
+                                            print "Send failed ! retry one time"
+                                            self.send_messages(from_uin, '貌似有人在召唤我! 关键词\\< %s \\> ' % words)
+                                    num += 1
+                                    print self.groupMember[from_uin][send_uid],  ":" + words
+                                else:
+                                    print group_name,
+                                    print self.groupMember[from_uin][send_uid],  ":" + words
 
                 except KeyError as m:
                     if m.message != 'result':
@@ -187,7 +189,7 @@ class SmartQQ:
                     else:
                         self.log.info("Messages time out ! ")
 
-                except TypeError as e :
+                except TypeError as e:
                     self.log.error(e)
                     self.log.error('TypeError: 176 lines')
                     self.log.error(reponse)
@@ -195,7 +197,7 @@ class SmartQQ:
                 except ValueError as e:
                     self.log.error(e)
                     print 181, mess
-                    self.log.error('TypeError: 140 lines')
+                    self.log.error('ValueError: 140 lines')
                     print 183, self.url_request.post(self.url_dic['pollMessage'], data=data).text
 
     def send_messages(self, from_uin, messages='Test_talk'):
