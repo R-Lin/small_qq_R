@@ -169,7 +169,7 @@ class SmartQQ:
                                 words = words.encode('utf8', 'ignore')
                                 if '/awk/' in group_name:
                                     print '###########################TEST###########################'
-                                    result = self.learn.learn_or_call(words)
+                                    result = self.learn.learn_or_call(words.replace("\n", "\\\\n"))
                                     if result:
                                         print self.send_messages(from_uin, result)
                                     # if re.findall(r'[,?A-z]', words):

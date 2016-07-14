@@ -1,6 +1,7 @@
 #coding:utf8
 import cPickle
 import os
+import re
 
 
 class Learn:
@@ -10,7 +11,7 @@ class Learn:
     def __init__(self):
         self.knowledge_file = 'kownledge.db'
         self.knowledge_cache = self.load()
-        self.length = 100
+        self.length = 10
 
     def load(self):
         """
@@ -37,23 +38,27 @@ class Learn:
         """
         Record Leran "key" "word"
         """
-        result = words.split()
-        if result[0] == '#learn#':
-            try:
-                self.knowledge_cache[result[1]] = ' '.join(result[2:])
-                if len(self.knowledge_cache) > self.length:
-                    self.save()
-                    self.length += 100
-                return 'Record successfully'
-            except IndexError:
-                return 'No enought record'
 
-        elif result[0] == '#use#':
-            answer = self.knowledge_cache.get(
-                result[1],
-                'Sorry !! No Record!'
-            )
-            return answer
+        if re.findall(r'#[^#]*#', words):
+            result = words.split(' ')
+            if result[0] == '#learn#':
+                try:
+                    self.knowledge_cache[result[1]] = ' '.join(result[2:])
+                    if len(self.knowledge_cache) > self.length:
+                        self.save()
+                        self.length += 10
+                    return 'Record successfully'
+                except IndexError:
+                    return 'No enought record'
+
+            elif result[0] == '#use#':
+                answer = self.knowledge_cache.get(
+                    result[1],
+                    'Sorry !! No Record!'
+                )
+                return answer
+            else:
+                return "[Function] only support #learn# and #use#"
         else:
             return None
 
