@@ -32,7 +32,9 @@ class SmartQQ:
             'groupNameList': 'http://s.web2.qq.com/api/get_group_name_list_mask2',
             'groupInfo': 'http://s.web2.qq.com/api/get_group_info_ext2?gcode={0}&vfwebqq={1}&t={2}',
             'pollMessage': 'http://d1.web2.qq.com/channel/poll2',
-            'send_qun' : 'http://d1.web2.qq.com/channel/send_qun_msg2',
+            'send_qun': 'http://d1.web2.qq.com/channel/send_qun_msg2',
+            'get_friends': 'http://s.web2.qq.com/api/get_user_friends2',
+            'send_message': 'http://d1.web2.qq.com/channel/send_buddy_msg2',
             'para': (
                 'https://ui.ptlogin2.qq.com/cgi-bin/login?daid=164&target=self&style=16&mibao_css=m_webqq'
                 '&appid=501004106&enable_qlogin=0&no_verifyimg=1&s_url=http%3A%2F%2Fw.qq.com%2Fproxy.html&'
@@ -145,17 +147,17 @@ class SmartQQ:
             # print self.url_request.post('https://httpbin.org/post', data=data).text
             # sys.exit()
             while 1:
-                num = 0
                 try:
                     reponse = self.url_request.post(self.url_dic['pollMessage'], data=data).content
                     mess = json.loads(reponse)
-                    # messages = mess['result'][0]['value']    # result set
-                    # print "149 messages_info", mess
                     for messages in mess['result']:
                         from_uin = str(messages['value']['from_uin'])
                         words = messages['value']['content'][1]
                         if messages['poll_type'] == 'message':
-                            self.log.info("The 136 line %s : %s" % (from_uin, words))
+                            self.log.info("The 157 line %s : %s" % (from_uin, words))
+                            print self.send_single(from_uin, 'Test\\n123123')
+                            print self.send_single(from_uin, '[\\\"face\\\",14]')
+
                         elif messages['poll_type'] == 'group_message':
                             if from_uin not in self.groupMember:
                                 self.log.info('GroupId : %s is not in dict GroupName' % from_uin)
@@ -169,7 +171,7 @@ class SmartQQ:
                                 words = words.encode('utf8', 'ignore')
                                 if '/awk/' in group_name:
                                     print '###########################TEST###########################'
-                                    result = self.learn.learn_or_call(words.replace("\n", "\\\\n"))
+                                    result = self.learn.learn_or_call(words.replace("\n", r"\\n"))
                                     if result:
                                         print self.send_messages(from_uin, result)
                                     # if re.findall(r'[,?A-z]', words):
@@ -206,18 +208,33 @@ class SmartQQ:
                     self.log.error('ValueError: 140 lines')
                     print 183, self.url_request.post(self.url_dic['pollMessage'], data=data).text
 
+    def send_single(self, to_uin, messages='Test'):
+        """
+        Send single messages
+        """
+        data =(
+            ('r',
+            '{{"to":{0},"content":"[\\"{1}\\",[\\"font\\",{{\\"name\\":\\"宋体\\",\\"size\\":10,\\"style\\":[0,0,0],\\"color\\":\\"000000\\"}}]]","face":693,"clientid":{2},"msg_id":{3},"psessionid":"{4}","service_type":0}}'.format(
+             to_uin, messages, self.clientid, random.randint(0, 1000), self.psessionid)),
+             ('clientid', self.clientid),
+             ('psessionid', self.psessionid)
+        )
+        print data
+        print self.url_request.post('https://httpbin.org/post', verify=True, data=dict(data)).text
+        result = self.url_request.post(self.url_dic['send_message'], data=data).text
+        return result
+
     def send_messages(self, from_uin, messages='Test_talk'):
         """
-        Send messages
+        Send group messages
         """
         data = (
             ('r',
              '{{"group_uin":{0}, "face":564,"content":"[\\"{4}\\",[\\"font\\",{{\\"name\\":\\"Arial\\",\\"size\\":\\"10\\",\\"style\\":[0,0,0],\\"color\\":\\"000000\\"}}]]","clientid":{1},"msg_id":{2},"psessionid":"{3}"}}'.format(
-                 from_uin, self.clientid, random.randint(0,1000), self.psessionid, messages)),
+                 from_uin, self.clientid, random.randint(0, 1000), self.psessionid, messages)),
             ('clientid', self.clientid),
             ('psessionid', self.psessionid)
         )
-        # print data
         result = self.url_request.post(self.url_dic['send_qun'], data=data).text
         # print self.url_request.post('https://httpbin.org/post', verify=True, data=dict(data)).text
         return result

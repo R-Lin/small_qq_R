@@ -38,3 +38,17 @@ qr_code = 'https://ssl.ptlogin2.qq.com/ptqrshow?appid=501004106&e=0&l=M&s=5&d=72
 检查二维码有无效:
 url = https://ssl.ptlogin2.qq.com/ptqrlogin?webqq_type=10&remember_uin=1&login2qq=1&aid={appid}&u1=http%3A%2F%2Fw.qq.com%2Fproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&ptredirect=0&ptlang=2052&daid=164&from_ui=1&pttype=1&dumy=&fp=loginerroralert&action=0-0-{star_time}&mibao_css={mibao_css}&t=undefined&g=1&js_type=0&js_ver={js_ver}&login_sig={sign}&pt_randsalt=0
 {u'retcode': 100012, u'errmsg': u'error!!!'}
+
+私发:
+http://d1.web2.qq.com/channel/send_buddy_msg2
+        data =(
+        ('r',
+         '{{"to":{0},"content":"[\\"{1}\\",[\\"font\\",{{\\"name\\":\\"宋体\\",\\"size\\":10,\\"style\\":[0,0,0],\\"color\\":\\"000000\\"}}]]","face":693,"clientid":{2},"msg_id":{3},"psessionid":"{4}","service_type":0}}'.format(
+             to_uin, messages, self.clientid, random.randint(0, 1000), self.psessionid
+         )),
+         ('clientid', self.clientid),
+         ('psessionid', self.psessionid)
+         )
+获取好友列表:
+http://s.web2.qq.com/api/get_user_friends2
+r:{"vfwebqq":"4cc18440ab1d2858faecb7cb92eab335c05b8df52d346528c57055fa68cd2418acabcadf8458e370","hash":"5E62070B5D4F5A12"}
