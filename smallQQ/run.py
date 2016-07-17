@@ -10,6 +10,7 @@ import requests
 import initialize
 import learning
 
+
 class SmartQQ:
     """
     A simple robot! For Fun!
@@ -21,6 +22,7 @@ class SmartQQ:
         self.clientid = 53999199
         self.psessionid = ''
         self.vfwebqq = None
+        self.friends_list = {}
         self.para_dic = {}
         self.url_request = initialize.get_req()
         self.log = initialize.log()
@@ -48,7 +50,7 @@ class SmartQQ:
 
     def qrcode_login(self):
         """
-         Downing the QRcode, and scan it to login
+        Downing the QRcode, and scan it to login
         """
         url = self.url_dic['qrcode'].format(self.para_dic['appid'])
         with open('qrcode.png', 'wb') as f:
@@ -100,13 +102,13 @@ class SmartQQ:
             self.log.info("Cookies file not found! Please scan the QRcode")
             self.qrcode_login()
         self.qtwebqq = self.url_request.cookies['ptwebqq']
+
         r_data = {
             'r': '{{"ptwebqq":"{0}","clientid":{1},"psessionid":"{2}","status":"online"}}'.format(
                         self.qtwebqq,
                         self.clientid,
                         self.psessionid,
-                    )
-        }
+                    )}
         self.url_request.headers['Referer'] = 'http://d1.web2.qq.com/proxy.html?v=20151105001&callback=1&id=2'
         result = json.loads(self.url_request.post('http://d1.web2.qq.com/channel/login2', data=r_data).text)
         self.psessionid = result['result']['psessionid']
@@ -124,10 +126,61 @@ class SmartQQ:
             )
         if not activate['retcode']:
             self.log.info('Activate suessfully!')
+            self.log.info('Initilizing now! Please wait!')
+            self.get_friends_list()
         else:
             self.log.error(
                 'Activate failed! Retcode: %s' % activate['retcode']
             )
+
+    def get_hash(self, uin, ptwebqq):
+        """
+        提取自http://pub.idqqimg.com/smartqq/js/mq.js
+        """
+        N = [0, 0, 0, 0]
+        for t in range(len(ptwebqq)):
+            N[t % 4] ^= ord(ptwebqq[t])
+        U = ["EC", "OK"]
+        V = [0, 0, 0, 0]
+        V[0] = int(uin) >> 24 & 255 ^ ord(U[0][0])
+        V[1] = int(uin) >> 16 & 255 ^ ord(U[0][1])
+        V[2] = int(uin) >> 8 & 255 ^ ord(U[1][0])
+        V[3] = int(uin) & 255 ^ ord(U[1][1])
+        U = [0, 0, 0, 0, 0, 0, 0, 0]
+        for T in range(8):
+            if T % 2 == 0:
+                U[T] = N[T >> 1]
+            else:
+                U[T] = V[T >> 1]
+        N = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+        V = ""
+        for T in range(len(U)):
+            V += N[U[T] >> 4 & 15]
+            V += N[U[T] & 15]
+        return V
+
+
+    def get_friends_list(self ):
+        """
+        Return the friends_list
+        """
+        self.log.info("Query the friends list")
+        response = self.url_request.post(
+            'http://s.web2.qq.com/api/get_user_friends2',
+            {
+                'r': json.dumps(
+                    {
+                        "vfwebqq": self.vfwebqq,
+                        "hash": self.get_hash('0659030105', self.qtwebqq),
+                    }
+                )
+            },
+        )
+        result = json.loads(response.text)
+        if result.get('retcode', None) == 0:
+            for item in result['result']['marknames']:
+                self.friends_list[str(item['uin'])] = item['markname']
+
 
     def poll(self):
         """
@@ -144,8 +197,6 @@ class SmartQQ:
                  "key": ""
                  }
             )}
-            # print self.url_request.post('https://httpbin.org/post', data=data).text
-            # sys.exit()
             while 1:
                 try:
                     reponse = self.url_request.post(self.url_dic['pollMessage'], data=data).content
@@ -155,8 +206,13 @@ class SmartQQ:
                         words = messages['value']['content'][1]
                         if messages['poll_type'] == 'message':
                             self.log.info("The 157 line %s : %s" % (from_uin, words))
-                            print self.send_single(from_uin, 'Test\\n123123')
-                            print self.send_single(from_uin, '[\\\"face\\\",14]')
+                            # print words
+                            print self.friends_list.get(from_uin, 'None'), " : ", words
+                            # print from_uin, self.friends_list
+                            # for key, i in self.friends_list.iteritems():
+                            #     print key + ':' +  i
+                            # print self.send_single(from_uin, words)
+
 
                         elif messages['poll_type'] == 'group_message':
                             if from_uin not in self.groupMember:
@@ -174,17 +230,6 @@ class SmartQQ:
                                     result = self.learn.learn_or_call(words.replace("\n", r"\\n"))
                                     if result:
                                         print self.send_messages(from_uin, result)
-                                    # if re.findall(r'[,?A-z]', words):
-                                    #     # print type(words)
-                                    #     send_result = json.loads(self.send_messages(from_uin, '[[ 通知 ]] : %s被放出来了'%(
-                                    #         self.groupMember[from_uin][send_uid].encode('utf8')
-                                    #     )))
-                                    #     print send_result
-                                    #     send_result = json.loads(self.send_messages(from_uin, '[\"face\", 14]'))
-                                    #     if send_result['retcode'] == 100001:
-                                    #         print "Send failed ! retry one time"
-                                    #         print self.send_messages(from_uin, '貌似有人在召唤我! 关键词\\< %s \\> ' % words)
-                                    # num += 1
                                 print group_name,
                                 print self.groupMember[from_uin][send_uid],  ":" + words
 
@@ -219,7 +264,7 @@ class SmartQQ:
              ('clientid', self.clientid),
              ('psessionid', self.psessionid)
         )
-        print data
+        # print data
         print self.url_request.post('https://httpbin.org/post', verify=True, data=dict(data)).text
         result = self.url_request.post(self.url_dic['send_message'], data=data).text
         return result
@@ -243,32 +288,6 @@ class SmartQQ:
         """
         According the GroupID, to set the GroupName_dic and GroupMem_dic
         """
-        def _hash_digest(uin, ptwebqq):
-            """
-            提取自http://pub.idqqimg.com/smartqq/js/mq.js
-            """
-            N = [0, 0, 0, 0]
-            for t in range(len(ptwebqq)):
-                N[t % 4] ^= ord(ptwebqq[t])
-            U = ["EC", "OK"]
-            V = [0, 0, 0, 0]
-            V[0] = int(uin) >> 24 & 255 ^ ord(U[0][0])
-            V[1] = int(uin) >> 16 & 255 ^ ord(U[0][1])
-            V[2] = int(uin) >> 8 & 255 ^ ord(U[1][0])
-            V[3] = int(uin) & 255 ^ ord(U[1][1])
-            U = [0, 0, 0, 0, 0, 0, 0, 0]
-            for T in range(8):
-                if T % 2 == 0:
-                    U[T] = N[T >> 1]
-                else:
-                    U[T] = V[T >> 1]
-            N = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
-            V = ""
-            for T in range(len(U)):
-                V += N[U[T] >> 4 & 15]
-                V += N[U[T] & 15]
-            return V
-
         self.log.info("Enter function groupInfo")
         response = self.url_request.post(
             'http://s.web2.qq.com/api/get_group_name_list_mask2',
@@ -276,7 +295,7 @@ class SmartQQ:
                 'r': json.dumps(
                     {
                         "vfwebqq": self.vfwebqq,
-                        "hash": _hash_digest('0659030105', self.qtwebqq),
+                        "hash": self.get_hash('0659030105', self.qtwebqq),
                     }
                 )
             },

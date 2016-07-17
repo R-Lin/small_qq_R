@@ -52,3 +52,6 @@ http://d1.web2.qq.com/channel/send_buddy_msg2
 获取好友列表:
 http://s.web2.qq.com/api/get_user_friends2
 r:{"vfwebqq":"4cc18440ab1d2858faecb7cb92eab335c05b8df52d346528c57055fa68cd2418acabcadf8458e370","hash":"5E62070B5D4F5A12"}
+
+# print self.url_request.post('https://httpbin.org/post', data=data).text
+# sys.exit()
