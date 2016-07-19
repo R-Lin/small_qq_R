@@ -110,8 +110,17 @@ class SmartQQ:
                         self.psessionid,
                     )}
         self.url_request.headers['Referer'] = 'http://d1.web2.qq.com/proxy.html?v=20151105001&callback=1&id=2'
-        result = json.loads(self.url_request.post('http://d1.web2.qq.com/channel/login2', data=r_data).text)
-        self.psessionid = result['result']['psessionid']
+        result = json.loads(
+            self.url_request.post('http://d1.web2.qq.com/channel/login2', data=r_data).text
+        ).get('result', None)
+        if result:
+            self.psessionid = result['psessionid']
+        else:
+            self.log.error('Cookies is failed, Please retry by sacning QRCode')
+            os.remove(self.cookie_file)
+            self.log.error('Cookies is deleted and exit now!')
+            sys.exit(3)
+
         vfwebqq_url = "http://s.web2.qq.com/api/getvfwebqq?ptwebqq={0}&clientid={1}&psessionid={2}&t={3}".format(
                         self.qtwebqq,
                         self.clientid,
@@ -203,16 +212,10 @@ class SmartQQ:
                     mess = json.loads(reponse)
                     for messages in mess['result']:
                         from_uin = str(messages['value']['from_uin'])
-                        words = messages['value']['content'][1]
+                        words = ''.join(messages['value']['content'][1:])
                         if messages['poll_type'] == 'message':
                             self.log.info("The 157 line %s : %s" % (from_uin, words))
-                            # print words
                             print self.friends_list.get(from_uin, 'None'), " : ", words
-                            # print from_uin, self.friends_list
-                            # for key, i in self.friends_list.iteritems():
-                            #     print key + ':' +  i
-                            # print self.send_single(from_uin, words)
-
 
                         elif messages['poll_type'] == 'group_message':
                             if from_uin not in self.groupMember:
@@ -220,7 +223,6 @@ class SmartQQ:
                                 self.get_group_info(from_uin)
                             send_uid = str(messages['value']['send_uin'])
                             group_name = self.groupName[from_uin]['name']
-                            time.sleep(4)
                             if isinstance(words, list):
                                 print 172, words
                             else:
@@ -232,6 +234,8 @@ class SmartQQ:
                                         print self.send_messages(from_uin, result)
                                 print group_name,
                                 print self.groupMember[from_uin][send_uid],  ":" + words
+                                if re.findall(r'@', words):
+                                    print 238, messages['value']['content']
 
                 except KeyError as m:
                     if m.message != 'result':
