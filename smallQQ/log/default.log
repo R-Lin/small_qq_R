@@ -3227,3 +3227,416 @@
 
 2016-07-20 14:43:14,128 [ERROR] No JSON object could be decoded
 2016-07-20 14:43:14,128 [ERROR] ValueError: 140 lines
+2016-07-20 14:46:59,786 [ERROR] No JSON object could be decoded
+2016-07-20 14:46:59,786 [ERROR] ValueError: 140 lines
+2016-07-20 14:53:18,009 [ERROR] sequence item 0: expected string, list found
+2016-07-20 14:53:18,009 [ERROR] TypeError: 176 lines
+2016-07-20 14:53:18,009 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",97]],"from_uin":489235150,"group_code":489235150,"msg_id":31054,"msg_type":0,"send_uin":652744661,"time":1468997597,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 14:57:53,253 [ERROR] sequence item 3: expected string or Unicode, list found
+2016-07-20 14:57:53,253 [ERROR] TypeError: 176 lines
+2016-07-20 14:57:53,253 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"@diudiuduang",""," 我要骗你的人",["face",101]],"from_uin":489235150,"group_code":489235150,"msg_id":31086,"msg_type":0,"send_uin":652744661,"time":1468997873,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:03:51,709 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:03:51,709 [ERROR] TypeError: 176 lines
+2016-07-20 15:03:51,710 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",3],"好少人"],"from_uin":489235150,"group_code":489235150,"msg_id":11185,"msg_type":0,"send_uin":3919853101,"time":1468998231,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:06:47,168 [ERROR] No JSON object could be decoded
+2016-07-20 15:06:47,168 [ERROR] ValueError: 140 lines
+2016-07-20 15:09:51,217 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:09:51,217 [ERROR] TypeError: 176 lines
+2016-07-20 15:09:51,217 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",97],"好多例子都跑步起来，看来我得搭个3的环境才行"],"from_uin":4067161640,"group_code":4067161640,"msg_id":4154,"msg_type":0,"send_uin":57285067,"time":1468998591,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:11:13,654 [ERROR] No JSON object could be decoded
+2016-07-20 15:11:13,655 [ERROR] ValueError: 140 lines
+2016-07-20 15:11:25,875 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:11:25,875 [ERROR] TypeError: 176 lines
+2016-07-20 15:11:25,875 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",75],"有人在不"],"from_uin":3060119291,"group_code":3060119291,"msg_id":18361,"msg_type":0,"send_uin":3124311193,"time":1468998685,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:11:39,694 [ERROR] sequence item 3: expected string or Unicode, list found
+2016-07-20 15:11:39,694 [ERROR] TypeError: 176 lines
+2016-07-20 15:11:39,694 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"@diudiuduang",""," 三围你要自己测量一下，年薪和资产是不会让你碰的，因为我是吃软饭拖鞋小王子",["face",6]],"from_uin":489235150,"group_code":489235150,"msg_id":31189,"msg_type":0,"send_uin":652744661,"time":1468998699,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:12:03,240 [ERROR] sequence item 1: expected string or Unicode, list found
+2016-07-20 15:12:03,242 [ERROR] TypeError: 176 lines
+2016-07-20 15:12:03,242 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"换个2的教程也是个办法，",["face",13]],"from_uin":4067161640,"group_code":4067161640,"msg_id":4196,"msg_type":0,"send_uin":57285067,"time":1468998723,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:12:58,581 [ERROR] No JSON object could be decoded
+2016-07-20 15:12:58,582 [ERROR] ValueError: 140 lines
+2016-07-20 15:15:06,628 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:15:06,628 [ERROR] TypeError: 176 lines
+2016-07-20 15:15:06,628 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",107]],"from_uin":1547608396,"group_code":1547608396,"msg_id":6431,"msg_type":0,"send_uin":3529350486,"time":1468998906,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:15:59,703 [ERROR] No JSON object could be decoded
+2016-07-20 15:15:59,704 [ERROR] ValueError: 140 lines
+2016-07-20 15:16:55,594 [ERROR] sequence item 1: expected string or Unicode, list found
+2016-07-20 15:16:55,595 [ERROR] TypeError: 176 lines
+2016-07-20 15:16:55,595 [ERROR] {"result":[{"poll_type":"discu_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"zookeeper 客户端好坑，  rmr /brokers/topics/zipkin  手动输入zipkin ,删不掉，复制了下，就删掉了.",["face",96]],"did":3203866172,"from_uin":3203866172,"msg_id":16434,"msg_type":0,"send_uin":3568937539,"time":1468999015,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:17:23,440 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:17:23,440 [ERROR] TypeError: 176 lines
+2016-07-20 15:17:23,440 [ERROR] {"result":[{"poll_type":"discu_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",56]],"did":3203866172,"from_uin":3203866172,"msg_id":16435,"msg_type":0,"send_uin":1176316957,"time":1468999043,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:17:23,525 [ERROR] No JSON object could be decoded
+2016-07-20 15:17:23,525 [ERROR] ValueError: 140 lines
+2016-07-20 15:17:41,183 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:17:41,183 [ERROR] TypeError: 176 lines
+2016-07-20 15:17:41,183 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",5]],"from_uin":1547608396,"group_code":1547608396,"msg_id":6451,"msg_type":0,"send_uin":3529350486,"time":1468999061,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:19:00,506 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:19:00,506 [ERROR] TypeError: 176 lines
+2016-07-20 15:19:00,506 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",57]],"from_uin":1547608396,"group_code":1547608396,"msg_id":32377,"msg_type":0,"send_uin":2342881004,"time":1468999140,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:19:16,474 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:19:16,474 [ERROR] TypeError: 176 lines
+2016-07-20 15:19:16,476 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",106]],"from_uin":1547608396,"group_code":1547608396,"msg_id":6465,"msg_type":0,"send_uin":3529350486,"time":1468999156,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:20:30,263 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:20:30,263 [ERROR] TypeError: 176 lines
+2016-07-20 15:20:30,263 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",98]],"from_uin":3060119291,"group_code":3060119291,"msg_id":18381,"msg_type":0,"send_uin":3124311193,"time":1468999230,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:21:11,426 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:21:11,426 [ERROR] TypeError: 176 lines
+2016-07-20 15:21:11,427 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",57]],"from_uin":1547608396,"group_code":1547608396,"msg_id":32436,"msg_type":0,"send_uin":2342881004,"time":1468999271,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:22:26,665 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:22:26,665 [ERROR] TypeError: 176 lines
+2016-07-20 15:22:26,667 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",57]],"from_uin":1547608396,"group_code":1547608396,"msg_id":32503,"msg_type":0,"send_uin":2342881004,"time":1468999346,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:22:26,855 [ERROR] No JSON object could be decoded
+2016-07-20 15:22:26,855 [ERROR] ValueError: 140 lines
+2016-07-20 15:24:24,607 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:24:24,607 [ERROR] TypeError: 176 lines
+2016-07-20 15:24:24,607 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",75]],"from_uin":3060119291,"group_code":3060119291,"msg_id":18385,"msg_type":0,"send_uin":3124311193,"time":1468999464,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:25:13,512 [ERROR] No JSON object could be decoded
+2016-07-20 15:25:13,513 [ERROR] ValueError: 140 lines
+2016-07-20 15:27:19,924 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:27:19,924 [ERROR] TypeError: 176 lines
+2016-07-20 15:27:19,924 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",98],"日日"],"from_uin":3060119291,"group_code":3060119291,"msg_id":18389,"msg_type":0,"send_uin":3124311193,"time":1468999639,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:27:27,608 [ERROR] No JSON object could be decoded
+2016-07-20 15:27:27,611 [ERROR] ValueError: 140 lines
+2016-07-20 15:27:31,566 [ERROR] No JSON object could be decoded
+2016-07-20 15:27:31,568 [ERROR] ValueError: 140 lines
+2016-07-20 15:27:56,779 [ERROR] No JSON object could be decoded
+2016-07-20 15:27:56,779 [ERROR] ValueError: 140 lines
+2016-07-20 15:30:39,983 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:30:39,983 [ERROR] TypeError: 176 lines
+2016-07-20 15:30:39,983 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",97],"这样真的好吗"],"from_uin":489235150,"group_code":489235150,"msg_id":19904,"msg_type":0,"send_uin":652744661,"time":1468999839,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:31:40,631 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:31:40,631 [ERROR] TypeError: 176 lines
+2016-07-20 15:31:40,631 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",88]],"from_uin":489235150,"group_code":489235150,"msg_id":19911,"msg_type":0,"send_uin":652744661,"time":1468999900,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:33:12,460 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:33:12,461 [ERROR] TypeError: 176 lines
+2016-07-20 15:33:12,461 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",98]],"from_uin":3060119291,"group_code":3060119291,"msg_id":18407,"msg_type":0,"send_uin":3124311193,"time":1468999992,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:33:59,487 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:33:59,489 [ERROR] TypeError: 176 lines
+2016-07-20 15:33:59,489 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",88],"我就是被你们宰割的"],"from_uin":489235150,"group_code":489235150,"msg_id":19918,"msg_type":0,"send_uin":652744661,"time":1469000039,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:41:36,049 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:41:36,051 [ERROR] TypeError: 176 lines
+2016-07-20 15:41:36,051 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",54]],"from_uin":4057253936,"group_code":4057253936,"msg_id":10160,"msg_type":0,"send_uin":2447651722,"time":1469000495,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:43:09,951 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:43:09,953 [ERROR] TypeError: 176 lines
+2016-07-20 15:43:09,953 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",98]],"from_uin":4057253936,"group_code":4057253936,"msg_id":20610,"msg_type":0,"send_uin":810757993,"time":1469000589,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:47:22,961 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:47:22,961 [ERROR] TypeError: 176 lines
+2016-07-20 15:47:22,963 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",98]],"from_uin":3060119291,"group_code":3060119291,"msg_id":18414,"msg_type":0,"send_uin":3124311193,"time":1469000842,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:53:18,937 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:53:18,937 [ERROR] TypeError: 176 lines
+2016-07-20 15:53:18,937 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",3],"这个不是说很红的网红么"],"from_uin":2777023869,"group_code":2777023869,"msg_id":32955,"msg_type":0,"send_uin":1829228452,"time":1469001198,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:56:29,115 [ERROR] sequence item 0: expected string, list found
+2016-07-20 15:56:29,115 [ERROR] TypeError: 176 lines
+2016-07-20 15:56:29,115 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",75]],"from_uin":3060119291,"group_code":3060119291,"msg_id":18426,"msg_type":0,"send_uin":3124311193,"time":1469001388,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 15:57:57,861 [ERROR] No JSON object could be decoded
+2016-07-20 15:57:57,861 [ERROR] ValueError: 140 lines
+2016-07-20 15:59:17,506 [ERROR] No JSON object could be decoded
+2016-07-20 15:59:17,506 [ERROR] ValueError: 140 lines
+2016-07-20 16:00:10,884 [ERROR] No JSON object could be decoded
+2016-07-20 16:00:10,884 [ERROR] ValueError: 140 lines
+2016-07-20 16:00:13,239 [ERROR] No JSON object could be decoded
+2016-07-20 16:00:13,240 [ERROR] ValueError: 140 lines
+2016-07-20 16:00:45,734 [ERROR] No JSON object could be decoded
+2016-07-20 16:00:45,734 [ERROR] ValueError: 140 lines
+2016-07-20 16:05:01,161 [ERROR] No JSON object could be decoded
+2016-07-20 16:05:01,161 [ERROR] ValueError: 140 lines
+2016-07-20 16:05:30,151 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:05:30,151 [ERROR] TypeError: 176 lines
+2016-07-20 16:05:30,151 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",118]],"from_uin":2481095205,"group_code":2481095205,"msg_id":13996,"msg_type":0,"send_uin":3413049371,"time":1469001930,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:06:47,140 [ERROR] No JSON object could be decoded
+2016-07-20 16:06:47,141 [ERROR] ValueError: 140 lines
+2016-07-20 16:07:27,151 [ERROR] No JSON object could be decoded
+2016-07-20 16:07:27,151 [ERROR] ValueError: 140 lines
+2016-07-20 16:08:19,293 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:08:19,293 [ERROR] TypeError: 176 lines
+2016-07-20 16:08:19,293 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",85]],"from_uin":2481095205,"group_code":2481095205,"msg_id":28447,"msg_type":0,"send_uin":1335125826,"time":1469002099,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:09:17,168 [ERROR] No JSON object could be decoded
+2016-07-20 16:09:17,170 [ERROR] ValueError: 140 lines
+2016-07-20 16:10:00,270 [ERROR] No JSON object could be decoded
+2016-07-20 16:10:00,272 [ERROR] ValueError: 140 lines
+2016-07-20 16:10:27,408 [ERROR] No JSON object could be decoded
+2016-07-20 16:10:27,408 [ERROR] ValueError: 140 lines
+2016-07-20 16:11:13,914 [ERROR] No JSON object could be decoded
+2016-07-20 16:11:13,914 [ERROR] ValueError: 140 lines
+2016-07-20 16:12:39,818 [ERROR] No JSON object could be decoded
+2016-07-20 16:12:39,819 [ERROR] ValueError: 140 lines
+2016-07-20 16:12:43,519 [ERROR] No JSON object could be decoded
+2016-07-20 16:12:43,519 [ERROR] ValueError: 140 lines
+2016-07-20 16:12:43,904 [ERROR] No JSON object could be decoded
+2016-07-20 16:12:43,904 [ERROR] ValueError: 140 lines
+2016-07-20 16:13:46,632 [ERROR] No JSON object could be decoded
+2016-07-20 16:13:46,634 [ERROR] ValueError: 140 lines
+2016-07-20 16:14:02,348 [ERROR] No JSON object could be decoded
+2016-07-20 16:14:02,348 [ERROR] ValueError: 140 lines
+2016-07-20 16:14:56,119 [ERROR] No JSON object could be decoded
+2016-07-20 16:14:56,121 [ERROR] ValueError: 140 lines
+2016-07-20 16:15:10,724 [ERROR] sequence item 1: expected string or Unicode, list found
+2016-07-20 16:15:10,724 [ERROR] TypeError: 176 lines
+2016-07-20 16:15:10,724 [ERROR] {"result":[{"poll_type":"message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"更喜欢男的",["face",2]],"from_uin":2593534951,"msg_id":21880,"msg_type":0,"time":1469002510,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:20:55,552 [ERROR] No JSON object could be decoded
+2016-07-20 16:20:55,553 [ERROR] ValueError: 140 lines
+2016-07-20 16:21:11,253 [ERROR] No JSON object could be decoded
+2016-07-20 16:21:11,255 [ERROR] ValueError: 140 lines
+2016-07-20 16:22:43,693 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:22:43,693 [ERROR] TypeError: 176 lines
+2016-07-20 16:22:43,694 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",13],"地球太渺小了，，不值得就，，"],"from_uin":2777023869,"group_code":2777023869,"msg_id":4548,"msg_type":0,"send_uin":3296486210,"time":1469002963,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:22:46,276 [ERROR] No JSON object could be decoded
+2016-07-20 16:22:46,276 [ERROR] ValueError: 140 lines
+2016-07-20 16:23:16,967 [ERROR] No JSON object could be decoded
+2016-07-20 16:23:16,967 [ERROR] ValueError: 140 lines
+2016-07-20 16:23:44,500 [ERROR] No JSON object could be decoded
+2016-07-20 16:23:44,500 [ERROR] ValueError: 140 lines
+2016-07-20 16:24:03,283 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:24:03,285 [ERROR] TypeError: 176 lines
+2016-07-20 16:24:03,285 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",13]],"from_uin":2777023869,"group_code":2777023869,"msg_id":4591,"msg_type":0,"send_uin":3296486210,"time":1469003043,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:25:02,053 [ERROR] No JSON object could be decoded
+2016-07-20 16:25:02,055 [ERROR] ValueError: 140 lines
+2016-07-20 16:25:13,499 [ERROR] sequence item 1: expected string or Unicode, list found
+2016-07-20 16:25:13,499 [ERROR] TypeError: 176 lines
+2016-07-20 16:25:13,499 [ERROR] {"result":[{"poll_type":"message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"叫朴宝剑",["face",100]],"from_uin":2593534951,"msg_id":21888,"msg_type":0,"time":1469003113,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:26:08,053 [ERROR] KeyError: 131 lines
+2016-07-20 16:26:08,053 [ERROR] '2661796169'
+2016-07-20 16:26:52,342 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:26:52,342 [ERROR] TypeError: 176 lines
+2016-07-20 16:26:52,342 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",57]],"from_uin":1547608396,"group_code":1547608396,"msg_id":35104,"msg_type":0,"send_uin":2342881004,"time":1469003212,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:27:00,546 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:27:00,546 [ERROR] TypeError: 176 lines
+2016-07-20 16:27:00,546 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",100]],"from_uin":1547608396,"group_code":1547608396,"msg_id":6482,"msg_type":0,"send_uin":2661796169,"time":1469003220,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:27:00,644 [ERROR] No JSON object could be decoded
+2016-07-20 16:27:00,644 [ERROR] ValueError: 140 lines
+2016-07-20 16:27:08,259 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:27:08,260 [ERROR] TypeError: 176 lines
+2016-07-20 16:27:08,260 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",74]],"from_uin":2777023869,"group_code":2777023869,"msg_id":24186,"msg_type":0,"send_uin":3989988799,"time":1469003228,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:27:13,367 [ERROR] No JSON object could be decoded
+2016-07-20 16:27:13,368 [ERROR] ValueError: 140 lines
+2016-07-20 16:27:20,627 [ERROR] KeyError: 131 lines
+2016-07-20 16:27:20,628 [ERROR] '2661796169'
+2016-07-20 16:28:56,885 [ERROR] No JSON object could be decoded
+2016-07-20 16:28:56,887 [ERROR] ValueError: 140 lines
+2016-07-20 16:29:02,900 [ERROR] No JSON object could be decoded
+2016-07-20 16:29:02,900 [ERROR] ValueError: 140 lines
+2016-07-20 16:29:16,673 [ERROR] No JSON object could be decoded
+2016-07-20 16:29:16,673 [ERROR] ValueError: 140 lines
+2016-07-20 16:29:28,183 [ERROR] No JSON object could be decoded
+2016-07-20 16:29:28,183 [ERROR] ValueError: 140 lines
+2016-07-20 16:29:46,130 [ERROR] No JSON object could be decoded
+2016-07-20 16:29:46,131 [ERROR] ValueError: 140 lines
+2016-07-20 16:30:57,542 [ERROR] No JSON object could be decoded
+2016-07-20 16:30:57,542 [ERROR] ValueError: 140 lines
+2016-07-20 16:32:12,459 [ERROR] No JSON object could be decoded
+2016-07-20 16:32:12,459 [ERROR] ValueError: 140 lines
+2016-07-20 16:32:27,351 [ERROR] No JSON object could be decoded
+2016-07-20 16:32:27,351 [ERROR] ValueError: 140 lines
+2016-07-20 16:33:30,253 [ERROR] No JSON object could be decoded
+2016-07-20 16:33:30,253 [ERROR] ValueError: 140 lines
+2016-07-20 16:35:13,417 [ERROR] No JSON object could be decoded
+2016-07-20 16:35:13,417 [ERROR] ValueError: 140 lines
+2016-07-20 16:36:02,207 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:36:02,207 [ERROR] TypeError: 176 lines
+2016-07-20 16:36:02,209 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",57]],"from_uin":2777023869,"group_code":2777023869,"msg_id":35732,"msg_type":0,"send_uin":2342881004,"time":1469003762,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:36:16,480 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:36:16,480 [ERROR] TypeError: 176 lines
+2016-07-20 16:36:16,480 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",46]],"from_uin":1431590663,"group_code":1431590663,"msg_id":25841,"msg_type":0,"send_uin":3818904763,"time":1469003776,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:36:57,706 [ERROR] No JSON object could be decoded
+2016-07-20 16:36:57,707 [ERROR] ValueError: 140 lines
+2016-07-20 16:37:58,308 [ERROR] No JSON object could be decoded
+2016-07-20 16:37:58,309 [ERROR] ValueError: 140 lines
+2016-07-20 16:38:30,107 [ERROR] No JSON object could be decoded
+2016-07-20 16:38:30,108 [ERROR] ValueError: 140 lines
+2016-07-20 16:40:52,684 [ERROR] sequence item 3: expected string or Unicode, list found
+2016-07-20 16:40:52,684 [ERROR] TypeError: 176 lines
+2016-07-20 16:40:52,684 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"@上海-花开",""," ",["face",118],"这个思路可以的"],"from_uin":4057253936,"group_code":4057253936,"msg_id":10799,"msg_type":0,"send_uin":3768965755,"time":1469004052,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:42:53,594 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:42:53,594 [ERROR] TypeError: 176 lines
+2016-07-20 16:42:53,595 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",75],"之前的同事约我吃饭"],"from_uin":3060119291,"group_code":3060119291,"msg_id":18618,"msg_type":0,"send_uin":3124311193,"time":1469004173,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:42:58,407 [ERROR] No JSON object could be decoded
+2016-07-20 16:42:58,407 [ERROR] ValueError: 140 lines
+2016-07-20 16:44:23,043 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:44:23,043 [ERROR] TypeError: 176 lines
+2016-07-20 16:44:23,043 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",98],"00后又不怕死。。。"],"from_uin":4057253936,"group_code":4057253936,"msg_id":25743,"msg_type":0,"send_uin":130619972,"time":1469004262,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:44:57,529 [ERROR] No JSON object could be decoded
+2016-07-20 16:44:57,529 [ERROR] ValueError: 140 lines
+2016-07-20 16:45:14,065 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:45:14,065 [ERROR] TypeError: 176 lines
+2016-07-20 16:45:14,066 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",13],"好有道理"],"from_uin":3060119291,"group_code":3060119291,"msg_id":18669,"msg_type":0,"send_uin":3124311193,"time":1469004313,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:46:40,186 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:46:40,187 [ERROR] TypeError: 176 lines
+2016-07-20 16:46:40,187 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",75]],"from_uin":3060119291,"group_code":3060119291,"msg_id":18702,"msg_type":0,"send_uin":3124311193,"time":1469004400,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:47:49,904 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:47:49,905 [ERROR] TypeError: 176 lines
+2016-07-20 16:47:49,905 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",10]],"from_uin":2777023869,"group_code":2777023869,"msg_id":24199,"msg_type":0,"send_uin":3989988799,"time":1469004469,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:47:57,055 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:47:57,055 [ERROR] TypeError: 176 lines
+2016-07-20 16:47:57,055 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",46]],"from_uin":3060119291,"group_code":3060119291,"msg_id":2423,"msg_type":0,"send_uin":1485288290,"time":1469004476,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:47:57,785 [ERROR] No JSON object could be decoded
+2016-07-20 16:47:57,786 [ERROR] ValueError: 140 lines
+2016-07-20 16:49:32,141 [ERROR] No JSON object could be decoded
+2016-07-20 16:49:32,141 [ERROR] ValueError: 140 lines
+2016-07-20 16:49:59,282 [ERROR] No JSON object could be decoded
+2016-07-20 16:49:59,283 [ERROR] ValueError: 140 lines
+2016-07-20 16:51:21,079 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:51:21,079 [ERROR] TypeError: 176 lines
+2016-07-20 16:51:21,079 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",75]],"from_uin":3060119291,"group_code":3060119291,"msg_id":18759,"msg_type":0,"send_uin":3124311193,"time":1469004680,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:51:58,257 [ERROR] sequence item 3: expected string or Unicode, list found
+2016-07-20 16:51:58,257 [ERROR] TypeError: 176 lines
+2016-07-20 16:51:58,257 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"@技术部郑凯伟",""," ",["face",74],"在不在不 看到回复下私Q啦"],"from_uin":1431590663,"group_code":1431590663,"msg_id":12802,"msg_type":0,"send_uin":2244017504,"time":1469004718,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:54:24,548 [ERROR] sequence item 1: expected string or Unicode, list found
+2016-07-20 16:54:24,549 [ERROR] TypeError: 176 lines
+2016-07-20 16:54:24,549 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"mdzz",["face",13]],"from_uin":2777023869,"group_code":2777023869,"msg_id":8136,"msg_type":0,"send_uin":2630634205,"time":1469004864,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:54:43,757 [ERROR] No JSON object could be decoded
+2016-07-20 16:54:43,759 [ERROR] ValueError: 140 lines
+2016-07-20 16:55:42,908 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:55:42,908 [ERROR] TypeError: 176 lines
+2016-07-20 16:55:42,908 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",101]],"from_uin":2777023869,"group_code":2777023869,"msg_id":8147,"msg_type":0,"send_uin":2630634205,"time":1469004942,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:55:43,127 [ERROR] No JSON object could be decoded
+2016-07-20 16:55:43,128 [ERROR] ValueError: 140 lines
+2016-07-20 16:58:02,950 [ERROR] sequence item 0: expected string, list found
+2016-07-20 16:58:02,950 [ERROR] TypeError: 176 lines
+2016-07-20 16:58:02,950 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",46]],"from_uin":4057253936,"group_code":4057253936,"msg_id":27749,"msg_type":0,"send_uin":109670063,"time":1469005082,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 16:59:00,065 [ERROR] No JSON object could be decoded
+2016-07-20 16:59:00,065 [ERROR] ValueError: 140 lines
+2016-07-20 16:59:12,542 [ERROR] No JSON object could be decoded
+2016-07-20 16:59:12,542 [ERROR] ValueError: 140 lines
+2016-07-20 17:01:03,026 [ERROR] No JSON object could be decoded
+2016-07-20 17:01:03,026 [ERROR] ValueError: 140 lines
+2016-07-20 17:03:15,674 [ERROR] No JSON object could be decoded
+2016-07-20 17:03:15,676 [ERROR] ValueError: 140 lines
+2016-07-20 17:06:19,362 [ERROR] sequence item 0: expected string, list found
+2016-07-20 17:06:19,364 [ERROR] TypeError: 176 lines
+2016-07-20 17:06:19,364 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",73]],"from_uin":4057253936,"group_code":4057253936,"msg_id":21494,"msg_type":0,"send_uin":810757993,"time":1469005579,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 17:07:17,526 [ERROR] sequence item 0: expected string, list found
+2016-07-20 17:07:17,526 [ERROR] TypeError: 176 lines
+2016-07-20 17:07:17,526 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",46]],"from_uin":4057253936,"group_code":4057253936,"msg_id":31517,"msg_type":0,"send_uin":951263156,"time":1469005637,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 17:08:57,203 [ERROR] No JSON object could be decoded
+2016-07-20 17:08:57,203 [ERROR] ValueError: 140 lines
+2016-07-20 17:10:13,770 [ERROR] No JSON object could be decoded
+2016-07-20 17:10:13,772 [ERROR] ValueError: 140 lines
+2016-07-20 17:11:11,374 [ERROR] No JSON object could be decoded
+2016-07-20 17:11:11,375 [ERROR] ValueError: 140 lines
+2016-07-20 17:11:30,460 [ERROR] No JSON object could be decoded
+2016-07-20 17:11:30,460 [ERROR] ValueError: 140 lines
+2016-07-20 17:13:58,273 [ERROR] sequence item 1: expected string or Unicode, list found
+2016-07-20 17:13:58,273 [ERROR] TypeError: 176 lines
+2016-07-20 17:13:58,273 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"是不是可以拿这个价格出来卖",["face",108]],"from_uin":1431590663,"group_code":1431590663,"msg_id":8685,"msg_type":0,"send_uin":2641457630,"time":1469006038,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 17:14:32,609 [ERROR] sequence item 0: expected string, list found
+2016-07-20 17:14:32,609 [ERROR] TypeError: 176 lines
+2016-07-20 17:14:32,611 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",101]],"from_uin":2777023869,"group_code":2777023869,"msg_id":24203,"msg_type":0,"send_uin":3989988799,"time":1469006072,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 17:15:00,256 [ERROR] No JSON object could be decoded
+2016-07-20 17:15:00,256 [ERROR] ValueError: 140 lines
+2016-07-20 17:15:02,775 [ERROR] No JSON object could be decoded
+2016-07-20 17:15:02,776 [ERROR] ValueError: 140 lines
+2016-07-20 17:15:47,782 [ERROR] No JSON object could be decoded
+2016-07-20 17:15:47,782 [ERROR] ValueError: 140 lines
+2016-07-20 17:16:03,881 [ERROR] sequence item 1: expected string or Unicode, list found
+2016-07-20 17:16:03,881 [ERROR] TypeError: 176 lines
+2016-07-20 17:16:03,881 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"定海神针",["face",3]],"from_uin":1431590663,"group_code":1431590663,"msg_id":20597,"msg_type":0,"send_uin":3315469136,"time":1469006163,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 17:16:29,380 [ERROR] No JSON object could be decoded
+2016-07-20 17:16:29,380 [ERROR] ValueError: 140 lines
+2016-07-20 17:17:10,085 [ERROR] sequence item 0: expected string, list found
+2016-07-20 17:17:10,085 [ERROR] TypeError: 176 lines
+2016-07-20 17:17:10,085 [ERROR] {"result":[{"poll_type":"discu_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",46]],"did":3203866172,"from_uin":3203866172,"msg_id":16456,"msg_type":0,"send_uin":3568937539,"time":1469006229,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 17:17:44,026 [ERROR] No JSON object could be decoded
+2016-07-20 17:17:44,026 [ERROR] ValueError: 140 lines
+2016-07-20 17:19:58,790 [ERROR] No JSON object could be decoded
+2016-07-20 17:19:58,792 [ERROR] ValueError: 140 lines
+2016-07-20 17:20:11,421 [ERROR] sequence item 0: expected string, list found
+2016-07-20 17:20:11,423 [ERROR] TypeError: 176 lines
+2016-07-20 17:20:11,423 [ERROR] {"result":[{"poll_type":"message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",57]],"from_uin":2342881004,"msg_id":23078,"msg_type":0,"time":1469006411,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 17:20:32,469 [ERROR] No JSON object could be decoded
+2016-07-20 17:20:32,470 [ERROR] ValueError: 140 lines
+2016-07-20 17:20:41,605 [ERROR] 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)
+2016-07-20 17:20:41,607 [ERROR] ValueError: 140 lines
+2016-07-20 17:21:34,203 [ERROR] 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)
+2016-07-20 17:21:34,204 [ERROR] ValueError: 140 lines
+2016-07-20 17:21:41,713 [ERROR] No JSON object could be decoded
+2016-07-20 17:21:41,713 [ERROR] ValueError: 140 lines
+2016-07-20 17:22:48,717 [WARNING] Cookies_file time out
+2016-07-20 17:23:34,203 [ERROR] 'ascii' codec can't decode byte 0xe4 in position 6: ordinal not in range(128)
+2016-07-20 17:23:34,203 [ERROR] ValueError: 140 lines
+2016-07-20 17:24:10,157 [ERROR] 'ascii' codec can't encode character u'\u554a' in position 0: ordinal not in range(128)
+2016-07-20 17:24:10,157 [ERROR] ValueError: 140 lines
+2016-07-20 17:25:27,487 [ERROR] No JSON object could be decoded
+2016-07-20 17:25:27,487 [ERROR] ValueError: 140 lines
+2016-07-20 17:25:57,727 [ERROR] No JSON object could be decoded
+2016-07-20 17:25:57,729 [ERROR] ValueError: 140 lines
+2016-07-20 17:26:51,767 [ERROR] sequence item 0: expected string, list found
+2016-07-20 17:26:51,767 [ERROR] TypeError: 176 lines
+2016-07-20 17:26:51,767 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",3]],"from_uin":2777023869,"group_code":2777023869,"msg_id":33646,"msg_type":0,"send_uin":1829228452,"time":1469006811,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 17:26:57,355 [ERROR] No JSON object could be decoded
+2016-07-20 17:26:57,355 [ERROR] ValueError: 140 lines
+2016-07-20 17:30:17,624 [ERROR] sequence item 1: expected string or Unicode, list found
+2016-07-20 17:30:17,637 [ERROR] TypeError: 176 lines
+2016-07-20 17:30:17,637 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"为毛深圳的面试电话也辣麽少呢",["face",5]],"from_uin":2777023869,"group_code":2777023869,"msg_id":24840,"msg_type":0,"send_uin":828840698,"time":1469007017,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 17:30:17,710 [ERROR] No JSON object could be decoded
+2016-07-20 17:30:17,710 [ERROR] ValueError: 140 lines
+2016-07-20 17:31:00,515 [ERROR] sequence item 0: expected string, list found
+2016-07-20 17:31:00,516 [ERROR] TypeError: 176 lines
+2016-07-20 17:31:00,516 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",2],["face",2],["face",2]],"from_uin":2777023869,"group_code":2777023869,"msg_id":18423,"msg_type":0,"send_uin":3279775826,"time":1469007060,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 17:31:00,744 [ERROR] No JSON object could be decoded
+2016-07-20 17:31:00,746 [ERROR] ValueError: 140 lines
+2016-07-20 17:31:27,680 [ERROR] No JSON object could be decoded
+2016-07-20 17:31:27,680 [ERROR] ValueError: 140 lines
+2016-07-20 17:31:59,509 [ERROR] No JSON object could be decoded
+2016-07-20 17:31:59,510 [ERROR] ValueError: 140 lines

@@ -58,7 +58,7 @@ class Learn:
                     result[1],
                     'Sorry !! No Record!'
                 )
-                return answer
+                return answer.encode('utf8')
             elif result[0] in ['#weather#', '###']:
                 answer = self.weather.get_weather_report(result[1])
                 return answer
