@@ -3640,3 +3640,41 @@
 2016-07-20 17:31:27,680 [ERROR] ValueError: 140 lines
 2016-07-20 17:31:59,509 [ERROR] No JSON object could be decoded
 2016-07-20 17:31:59,510 [ERROR] ValueError: 140 lines
+2016-07-20 17:38:33,279 [ERROR] No JSON object could be decoded
+2016-07-20 17:38:33,279 [ERROR] ValueError: 140 lines
+2016-07-20 17:48:45,671 [ERROR] No JSON object could be decoded
+2016-07-20 17:48:45,671 [ERROR] ValueError: 140 lines
+2016-07-20 17:48:45,766 [ERROR] No JSON object could be decoded
+2016-07-20 17:48:45,767 [ERROR] ValueError: 140 lines
+2016-07-20 17:48:45,947 [ERROR] No JSON object could be decoded
+2016-07-20 17:48:45,947 [ERROR] ValueError: 140 lines
+2016-07-20 17:49:42,882 [ERROR] 'ascii' codec can't decode byte 0xe8 in position 0: ordinal not in range(128)
+2016-07-20 17:49:42,882 [ERROR] ValueError: 140 lines
+2016-07-20 17:50:31,585 [ERROR] 'ascii' codec can't decode byte 0xe8 in position 0: ordinal not in range(128)
+2016-07-20 17:50:31,585 [ERROR] ValueError: 140 lines
+2016-07-20 17:52:01,026 [ERROR] No JSON object could be decoded
+2016-07-20 17:52:01,028 [ERROR] ValueError: 140 lines
+2016-07-20 17:52:41,341 [ERROR] No JSON object could be decoded
+2016-07-20 17:52:41,341 [ERROR] ValueError: 140 lines
+2016-07-20 17:53:17,861 [ERROR] No JSON object could be decoded
+2016-07-20 17:53:17,861 [ERROR] ValueError: 140 lines
+2016-07-20 17:55:04,928 [ERROR] sequence item 0: expected string, list found
+2016-07-20 17:55:04,928 [ERROR] TypeError: 176 lines
+2016-07-20 17:55:04,928 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",97]],"from_uin":489235150,"group_code":489235150,"msg_id":10326,"msg_type":0,"send_uin":2558862978,"time":1469008504,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 17:55:41,819 [ERROR] sequence item 0: expected string, list found
+2016-07-20 17:55:41,819 [ERROR] TypeError: 176 lines
+2016-07-20 17:55:41,819 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",74]],"from_uin":4057253936,"group_code":4057253936,"msg_id":46884,"msg_type":0,"send_uin":2304446094,"time":1469008541,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 17:56:54,075 [ERROR] sequence item 0: expected string, list found
+2016-07-20 17:56:54,075 [ERROR] TypeError: 176 lines
+2016-07-20 17:56:54,075 [ERROR] {"result":[{"poll_type":"message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",75],["face",75]],"from_uin":1753062694,"msg_id":30097,"msg_type":0,"time":1469008613,"to_uin":659030105}}],"retcode":0}
+
+2016-07-20 17:56:59,973 [ERROR] No JSON object could be decoded
+2016-07-20 17:56:59,973 [ERROR] ValueError: 140 lines
+2016-07-20 18:12:00,913 [ERROR] No JSON object could be decoded
+2016-07-20 18:12:00,914 [ERROR] ValueError: 140 lines
+2016-07-20 18:12:45,049 [ERROR] No JSON object could be decoded
+2016-07-20 18:12:45,049 [ERROR] ValueError: 140 lines
+2016-07-20 18:13:00,154 [ERROR] No JSON object could be decoded
+2016-07-20 18:13:00,154 [ERROR] ValueError: 140 lines

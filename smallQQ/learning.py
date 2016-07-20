@@ -42,16 +42,24 @@ class Learn:
         """
 
         if re.findall(r'#[^#]*#', words):
-            result = words.split(' ')
+            result = words.split()
             if result[0] == '#learn#':
-                try:
-                    self.knowledge_cache[result[1]] = ' '.join(result[2:])
+                learn_word = ' '.join(result[2:])
+                if learn_word:
+                    self.knowledge_cache[result[1]] = learn_word
                     if len(self.knowledge_cache) > self.length:
                         self.save()
                         self.length += 10
                     return 'Record successfully'
-                except IndexError:
+                else:
                     return 'No enought record'
+
+            elif result[0] == '#show#':
+                answer = u'记忆体:\n'
+                for key, value in self.knowledge_cache.iteritems():
+                    answer += '%s : %s\n ' % (key, value)
+
+                return answer.encode('utf8')
 
             elif result[0] == '#use#':
                 answer = self.knowledge_cache.get(
@@ -59,6 +67,7 @@ class Learn:
                     'Sorry !! No Record!'
                 )
                 return answer.encode('utf8')
+
             elif result[0] in ['#weather#', '###']:
                 answer = self.weather.get_weather_report(result[1])
                 return answer
@@ -69,7 +78,8 @@ class Learn:
                     '[Function] only support:\n'
                     '1.#learn# 关键字 需要记录的内容\n'
                     '2.#use# 关键字\n'
-                    '3.#weather# 中国市级城市名\n '
+                    '3.#show# \n'
+                    '4.#weather# 中国市级城市名\n '
                 )
 
         else:
