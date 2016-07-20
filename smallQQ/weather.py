@@ -30,23 +30,33 @@ class Weather:
         """
         According the city_name, return the weather_report of now or 7 day
         """
-        weather = json.loads(
-            requests.get(
-                self.weather_url % (
-                    self.city_id_dict[city_name],
-                    self.auth_key
-                ),
-                verify=True
-            ).text
-        )
+        try:
+            weather = json.loads(
+                requests.get(
+                    self.weather_url % (
+                        self.city_id_dict[city_name],
+                        self.auth_key
+                    ),
+                    verify=True
+                ).text
+            )
+        except KeyError:
+            return "%s %s 仅支持中国部分市级城市!" % (city_name, type(city_name))
+
         if weak:
             pass
         else:
-            return weather['HeWeather data service 3.0'][0]['now']
+            now_weather = weather['HeWeather data service 3.0'][0]['now']
+            now_weather['cond'] = now_weather['cond']['txt']
+            now_weather['city'] = city_name
+            weather_report = (
+                u'城市: {0[city]}\n'
+                u'湿度 : {0[hum]}%\n'
+                u'降雨量 : {0[pcpn]}mm\n'
+                u'天气状况 : {0[cond]}\n'
+                u'当前温度 : {0[tmp]}摄氏度\n'
+                u'体感温度 : {0[fl]}摄氏度\n'
+            ).format(now_weather)
+            return weather_report.encode('utf8')
 
-c = Weather()
-result = c.get_weather_report(u'广州')
-print result
-for key, value in result['cond'].iteritems():
-    print key, value
 

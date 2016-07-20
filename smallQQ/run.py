@@ -29,6 +29,7 @@ class SmartQQ:
         self.groupName = {}
         self.groupMember = {}
         self.url_dic = {
+            'test': 'https://httpbin.org/post',
             'qrcode': 'https://ssl.ptlogin2.qq.com/ptqrshow?appid={0}&e=0&l=L&s=8&d=72&v=4',
             'get_online_buddies2': 'http://d1.web2.qq.com/channel/get_online_buddies2?vfwebqq={0}4&clientid={1}&psessionid={2}',
             'groupNameList': 'http://s.web2.qq.com/api/get_group_name_list_mask2',
@@ -214,8 +215,17 @@ class SmartQQ:
                         from_uin = str(messages['value']['from_uin'])
                         words = ''.join(messages['value']['content'][1:])
                         if messages['poll_type'] == 'message':
-                            self.log.info("The 157 line %s : %s" % (from_uin, words))
-                            print self.friends_list.get(from_uin, 'None'), " : ", words
+                            self.log.info("The 217 line %s : %s" % (
+                                self.friends_list.get(from_uin, 'None'),
+                                words
+                            ))
+                            result = self.learn.learn_or_call(words.replace("\n", r"\\n"))
+                            if result:
+                                print 224, self.send_single(from_uin, result.replace("\n", r"\\n"))
+                                print result
+                            else:
+                                print 225, result
+                                print self.friends_list.get(from_uin, 'None'), " : ", words
 
                         elif messages['poll_type'] == 'group_message':
                             if from_uin not in self.groupMember:
@@ -226,16 +236,14 @@ class SmartQQ:
                             if isinstance(words, list):
                                 print 172, words
                             else:
-                                words = words.encode('utf8', 'ignore')
+                                # words = words.encode('utf8', 'ignore')
                                 if '/awk/' in group_name:
                                     print '###########################TEST###########################'
                                     result = self.learn.learn_or_call(words.replace("\n", r"\\n"))
                                     if result:
                                         print self.send_messages(from_uin, result)
                                 print group_name,
-                                print self.groupMember[from_uin][send_uid],  ":" + words
-                                if re.findall(r'@', words):
-                                    print 238, messages['value']['content']
+                                print self.groupMember[from_uin][send_uid],  ":" + words.encode('utf8', 'ignore')
 
                 except KeyError as m:
                     if m.message != 'result':
@@ -261,15 +269,13 @@ class SmartQQ:
         """
         Send single messages
         """
-        data =(
+        data = (
             ('r',
             '{{"to":{0},"content":"[\\"{1}\\",[\\"font\\",{{\\"name\\":\\"宋体\\",\\"size\\":10,\\"style\\":[0,0,0],\\"color\\":\\"000000\\"}}]]","face":693,"clientid":{2},"msg_id":{3},"psessionid":"{4}","service_type":0}}'.format(
              to_uin, messages, self.clientid, random.randint(0, 1000), self.psessionid)),
-             ('clientid', self.clientid),
-             ('psessionid', self.psessionid)
+            ('clientid', self.clientid),
+            ('psessionid', self.psessionid)
         )
-        # print data
-        print self.url_request.post('https://httpbin.org/post', verify=True, data=dict(data)).text
         result = self.url_request.post(self.url_dic['send_message'], data=data).text
         return result
 
@@ -285,7 +291,6 @@ class SmartQQ:
             ('psessionid', self.psessionid)
         )
         result = self.url_request.post(self.url_dic['send_qun'], data=data).text
-        # print self.url_request.post('https://httpbin.org/post', verify=True, data=dict(data)).text
         return result
 
     def get_group_info(self, groupid):
@@ -306,7 +311,6 @@ class SmartQQ:
         )
         result = json.loads(response.text)
         if result['retcode'] == 0:
-            # print "228 ALL group info", result
             for group in result['result']['gnamelist']:
                 self.groupName[str(group['gid'])] = group
             self.log.info('Get groupList success!')
@@ -315,7 +319,6 @@ class SmartQQ:
             tmp_dic = {}
             url = self.url_dic['groupInfo'].format(group_id, self.vfwebqq, stamp)
             try:
-                # print "ALL member info ", self.url_request.get(url).text
                 member_list = json.loads(self.url_request.get(url).text)['result']['minfo']
                 for member in member_list:
                     tmp_dic[str(member['uin'])] = member['nick']
@@ -323,8 +326,6 @@ class SmartQQ:
             except KeyError:
                 print "KeyError The line is 187"
                 print json.loads(self.url_request.get(url).text)
-            # print "group_name", self.groupName
-            # print "group_mem", self.groupMember
 
     def main(self):
         self.get_comm_para()

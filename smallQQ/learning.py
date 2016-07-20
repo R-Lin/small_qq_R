@@ -2,6 +2,7 @@
 import cPickle
 import os
 import re
+import weather
 
 
 class Learn:
@@ -12,6 +13,7 @@ class Learn:
         self.knowledge_file = 'kownledge.db'
         self.knowledge_cache = self.load()
         self.length = 10
+        self.weather = weather.Weather()
 
     def load(self):
         """
@@ -57,8 +59,19 @@ class Learn:
                     'Sorry !! No Record!'
                 )
                 return answer
+            elif result[0] in ['#weather#', '###']:
+                answer = self.weather.get_weather_report(result[1])
+                return answer
+
             else:
-                return "[Function] only support #learn# and #use#"
+                return (
+                    '[注意]: 请注意语法(空格)\n'
+                    '[Function] only support:\n'
+                    '1.#learn# 关键字 需要记录的内容\n'
+                    '2.#use# 关键字\n'
+                    '3.#weather# 中国市级城市名\n '
+                )
+
         else:
             return None
 
