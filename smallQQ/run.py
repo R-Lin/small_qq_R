@@ -190,6 +190,10 @@ class SmartQQ:
         if result.get('retcode', None) == 0:
             for item in result['result']['marknames']:
                 self.friends_list[str(item['uin'])] = item['markname']
+        if self.friends_list:
+            self.log.info('Friends list initalized suessfully!')
+        else:
+            self.log.error('Friends list initalized failed!')
 
 
     def poll(self):
@@ -252,7 +256,7 @@ class SmartQQ:
                         print 133, self.groupName
                         print mess
                     else:
-                        self.log.info("Messages time out ! ")
+                        self.log.info("No new messages ! ")
 
                 except TypeError as e:
                     self.log.error(e)
@@ -331,6 +335,7 @@ class SmartQQ:
         self.get_comm_para()
         self.login()
 
-a = SmartQQ()
-a.main()
-a.poll()
+if __name__ == '__main__':
+    a = SmartQQ()
+    a.main()
+    a.poll()
