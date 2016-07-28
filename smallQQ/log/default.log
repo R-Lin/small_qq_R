@@ -4129,3 +4129,136 @@
 2016-07-23 16:09:46,035 [ERROR] ValueError: 140 lines
 2016-07-23 16:12:14,648 [ERROR] No JSON object could be decoded
 2016-07-23 16:12:14,648 [ERROR] ValueError: 140 lines
+2016-07-28 11:39:43,186 [WARNING] Cookies_file time out
+2016-07-28 11:41:34,601 [ERROR] sequence item 1: expected string or Unicode, list found
+2016-07-28 11:41:34,601 [ERROR] TypeError: 176 lines
+2016-07-28 11:41:34,601 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"找不到吴仙君",["face",96]],"from_uin":923619150,"group_code":923619150,"msg_id":26222,"msg_type":0,"send_uin":597920071,"time":1469677292,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 11:47:09,503 [ERROR] sequence item 0: expected string, list found
+2016-07-28 11:47:09,503 [ERROR] TypeError: 176 lines
+2016-07-28 11:47:09,503 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",46]],"from_uin":3192859513,"group_code":3192859513,"msg_id":27238,"msg_type":0,"send_uin":3168962295,"time":1469677629,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 11:48:34,114 [ERROR] sequence item 0: expected string, list found
+2016-07-28 11:48:34,115 [ERROR] TypeError: 176 lines
+2016-07-28 11:48:34,115 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",46]],"from_uin":3192859513,"group_code":3192859513,"msg_id":27246,"msg_type":0,"send_uin":3168962295,"time":1469677714,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 11:57:30,188 [ERROR] sequence item 0: expected string, list found
+2016-07-28 11:57:30,190 [ERROR] TypeError: 176 lines
+2016-07-28 11:57:30,190 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",46],"我不会python"],"from_uin":3192859513,"group_code":3192859513,"msg_id":27258,"msg_type":0,"send_uin":3168962295,"time":1469678250,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 11:58:39,631 [ERROR] sequence item 0: expected string, list found
+2016-07-28 11:58:39,631 [ERROR] TypeError: 176 lines
+2016-07-28 11:58:39,631 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",13]],"from_uin":3192859513,"group_code":3192859513,"msg_id":27266,"msg_type":0,"send_uin":3168962295,"time":1469678319,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 11:59:42,523 [ERROR] sequence item 0: expected string, list found
+2016-07-28 11:59:42,523 [ERROR] TypeError: 176 lines
+2016-07-28 11:59:42,523 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",57]],"from_uin":3192859513,"group_code":3192859513,"msg_id":53908,"msg_type":0,"send_uin":4056211699,"time":1469678382,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 12:01:56,142 [ERROR] sequence item 0: expected string, list found
+2016-07-28 12:01:56,142 [ERROR] TypeError: 176 lines
+2016-07-28 12:01:56,144 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",13]],"from_uin":667689384,"group_code":667689384,"msg_id":43020,"msg_type":0,"send_uin":4113858922,"time":1469678516,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 12:17:40,415 [ERROR] KeyError: 131 lines
+2016-07-28 12:17:40,415 [ERROR] '3754700694'
+2016-07-28 12:19:12,822 [ERROR] KeyError: 131 lines
+2016-07-28 12:19:12,822 [ERROR] '3754700694'
+2016-07-28 12:19:21,033 [ERROR] KeyError: 131 lines
+2016-07-28 12:19:21,035 [ERROR] '3754700694'
+2016-07-28 12:22:24,884 [ERROR] sequence item 0: expected string, list found
+2016-07-28 12:22:24,884 [ERROR] TypeError: 176 lines
+2016-07-28 12:22:24,884 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",3]],"from_uin":4066299061,"group_code":4066299061,"msg_id":29342,"msg_type":0,"send_uin":2350615990,"time":1469679745,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 12:22:55,486 [ERROR] KeyError: 131 lines
+2016-07-28 12:22:55,487 [ERROR] '4288203293'
+2016-07-28 12:23:20,990 [ERROR] KeyError: 131 lines
+2016-07-28 12:23:20,990 [ERROR] '3754700694'
+2016-07-28 12:23:54,579 [ERROR] KeyError: 131 lines
+2016-07-28 12:23:54,579 [ERROR] '3754700694'
+2016-07-28 12:24:22,288 [ERROR] KeyError: 131 lines
+2016-07-28 12:24:22,288 [ERROR] '3754700694'
+2016-07-28 12:43:55,095 [ERROR] KeyError: 131 lines
+2016-07-28 12:43:55,095 [ERROR] '3486380582'
+2016-07-28 12:49:25,710 [ERROR] sequence item 0: expected string, list found
+2016-07-28 12:49:25,711 [ERROR] TypeError: 176 lines
+2016-07-28 12:49:25,711 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",3],"  你的骑士     羊神都开店了啊"],"from_uin":3420335482,"group_code":3420335482,"msg_id":26057,"msg_type":0,"send_uin":4159825952,"time":1469681365,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 12:51:54,822 [ERROR] sequence item 1: expected string or Unicode, list found
+2016-07-28 12:51:54,822 [ERROR] TypeError: 176 lines
+2016-07-28 12:51:54,822 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"这是之前写的，不太对",["face",1]],"from_uin":2085682445,"group_code":2085682445,"msg_id":13196,"msg_type":0,"send_uin":2812257169,"time":1469681514,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 12:55:01,759 [ERROR] sequence item 0: expected string, list found
+2016-07-28 12:55:01,759 [ERROR] TypeError: 176 lines
+2016-07-28 12:55:01,759 [ERROR] {"result":[{"poll_type":"discu_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",13]],"did":2853076361,"from_uin":2853076361,"msg_id":44313,"msg_type":0,"send_uin":3166452680,"time":1469681701,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:17:15,155 [ERROR] sequence item 1: expected string or Unicode, list found
+2016-07-28 13:17:15,157 [ERROR] TypeError: 176 lines
+2016-07-28 13:17:15,157 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"马哥还没讲到这里所以不太会",["face",13]],"from_uin":2085682445,"group_code":2085682445,"msg_id":13418,"msg_type":0,"send_uin":2812257169,"time":1469683035,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:21:35,319 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:21:35,321 [ERROR] TypeError: 176 lines
+2016-07-28 13:21:35,321 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",97],"为了毛。。"],"from_uin":2085682445,"group_code":2085682445,"msg_id":20003,"msg_type":0,"send_uin":1624342744,"time":1469683295,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:23:04,019 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:23:04,019 [ERROR] TypeError: 176 lines
+2016-07-28 13:23:04,019 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",97]],"from_uin":2085682445,"group_code":2085682445,"msg_id":16828,"msg_type":0,"send_uin":3793338097,"time":1469683384,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:24:38,648 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:24:38,648 [ERROR] TypeError: 176 lines
+2016-07-28 13:24:38,648 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",96]],"from_uin":2085682445,"group_code":2085682445,"msg_id":28451,"msg_type":0,"send_uin":252245405,"time":1469683478,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:25:00,867 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:25:00,867 [ERROR] TypeError: 176 lines
+2016-07-28 13:25:00,867 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",101]],"from_uin":2085682445,"group_code":2085682445,"msg_id":29665,"msg_type":0,"send_uin":1383781967,"time":1469683500,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:29:26,463 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:29:26,463 [ERROR] TypeError: 176 lines
+2016-07-28 13:29:26,463 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",57]],"from_uin":2085682445,"group_code":2085682445,"msg_id":47495,"msg_type":0,"send_uin":209779411,"time":1469683766,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:30:27,063 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:30:27,065 [ERROR] TypeError: 176 lines
+2016-07-28 13:30:27,065 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",73]],"from_uin":2085682445,"group_code":2085682445,"msg_id":49617,"msg_type":0,"send_uin":652994143,"time":1469683827,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:30:47,563 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:30:47,563 [ERROR] TypeError: 176 lines
+2016-07-28 13:30:47,563 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",13]],"from_uin":3420335482,"group_code":3420335482,"msg_id":27468,"msg_type":0,"send_uin":3168962295,"time":1469683847,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:31:08,657 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:31:08,657 [ERROR] TypeError: 176 lines
+2016-07-28 13:31:08,657 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",55]],"from_uin":2085682445,"group_code":2085682445,"msg_id":28541,"msg_type":0,"send_uin":252245405,"time":1469683868,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:34:22,617 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:34:22,617 [ERROR] TypeError: 176 lines
+2016-07-28 13:34:22,617 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",85]],"from_uin":2085682445,"group_code":2085682445,"msg_id":28578,"msg_type":0,"send_uin":252245405,"time":1469684062,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:34:31,010 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:34:31,012 [ERROR] TypeError: 176 lines
+2016-07-28 13:34:31,012 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",13]],"from_uin":2085682445,"group_code":2085682445,"msg_id":47517,"msg_type":0,"send_uin":209779411,"time":1469684070,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:35:02,138 [ERROR] sequence item 3: expected string or Unicode, list found
+2016-07-28 13:35:02,138 [ERROR] TypeError: 176 lines
+2016-07-28 13:35:02,138 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"@北京-淫狐",""," ",["face",73]],"from_uin":2085682445,"group_code":2085682445,"msg_id":49657,"msg_type":0,"send_uin":652994143,"time":1469684102,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:37:50,891 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:37:50,892 [ERROR] TypeError: 176 lines
+2016-07-28 13:37:50,892 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",98]],"from_uin":2085682445,"group_code":2085682445,"msg_id":49698,"msg_type":0,"send_uin":652994143,"time":1469684270,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:38:28,605 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:38:28,605 [ERROR] TypeError: 176 lines
+2016-07-28 13:38:28,605 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",57]],"from_uin":3420335482,"group_code":3420335482,"msg_id":55081,"msg_type":0,"send_uin":4056211699,"time":1469684308,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:39:37,497 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:39:37,497 [ERROR] TypeError: 176 lines
+2016-07-28 13:39:37,499 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",3]],"from_uin":2085682445,"group_code":2085682445,"msg_id":28735,"msg_type":0,"send_uin":252245405,"time":1469684377,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:41:03,430 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:41:03,430 [ERROR] TypeError: 176 lines
+2016-07-28 13:41:03,430 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",13]],"from_uin":3192859513,"group_code":3192859513,"msg_id":9694,"msg_type":0,"send_uin":1309384772,"time":1469684463,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:42:32,717 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:42:32,719 [ERROR] TypeError: 176 lines
+2016-07-28 13:42:32,719 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",12]],"from_uin":2085682445,"group_code":2085682445,"msg_id":28757,"msg_type":0,"send_uin":252245405,"time":1469684552,"to_uin":659030105}}],"retcode":0}
+
+2016-07-28 13:43:03,878 [ERROR] sequence item 0: expected string, list found
+2016-07-28 13:43:03,878 [ERROR] TypeError: 176 lines
+2016-07-28 13:43:03,878 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",101]],"from_uin":4066299061,"group_code":4066299061,"msg_id":22971,"msg_type":0,"send_uin":2350615990,"time":1469684583,"to_uin":659030105}}],"retcode":0}
+
