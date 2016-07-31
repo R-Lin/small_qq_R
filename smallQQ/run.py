@@ -4,6 +4,7 @@ import sys
 import random
 import time
 import json
+import threading
 import os
 import cPickle
 import requests
@@ -60,7 +61,7 @@ class SmartQQ:
         url = self.url_dic['check_scan'].format(self.para_dic)
         while 1:
             result = eval(self.url_request.get(url, verify=True).text[6:-3])
-            self.log.info(result[4])  # return login result
+            self.log.info(result[4])                # return login result
             if result[0] == '0':
                 redirect_url = result[2]
                 self.url_request.get(redirect_url)  # visit redirect_url to modify the session cookies
@@ -138,6 +139,7 @@ class SmartQQ:
             self.log.info('Activate suessfully!')
             self.log.info('Initilizing now! Please wait!')
             self.get_friends_list()
+            self.get_group_list()
         else:
             self.log.error(
                 'Activate failed! Retcode: %s' % activate['retcode']
@@ -169,12 +171,10 @@ class SmartQQ:
             V += N[U[T] & 15]
         return V
 
-
-    def get_friends_list(self ):
+    def get_friends_list(self):
         """
         Return the friends_list
         """
-        self.log.info("Query the friends list")
         response = self.url_request.post(
             'http://s.web2.qq.com/api/get_user_friends2',
             {
@@ -190,7 +190,7 @@ class SmartQQ:
         if result.get('retcode', None) == 0:
             for item in result['result']['marknames']:
                 self.friends_list[str(item['uin'])] = item['markname']
-
+            self.log.info("Query the friends list OK")
 
     def poll(self):
         """
@@ -224,13 +224,13 @@ class SmartQQ:
                                 print 224, self.send_single(from_uin, result.replace("\n", r"\\n"))
                                 print result
                             else:
-                                print 225, result
+                                print 227, result
                                 print self.friends_list.get(from_uin, 'None'), " : ", words
 
                         elif messages['poll_type'] == 'group_message':
                             if from_uin not in self.groupMember:
                                 self.log.info('GroupId : %s is not in dict GroupName' % from_uin)
-                                self.get_group_info(from_uin)
+                                self.get_group_member(from_uin)
                             send_uid = str(messages['value']['send_uin'])
                             group_name = self.groupName[from_uin]['name']
                             if isinstance(words, list):
@@ -244,6 +244,8 @@ class SmartQQ:
                                         print self.send_messages(from_uin, result)
                                 print group_name,
                                 print self.groupMember[from_uin][send_uid],  ":" + words.encode('utf8', 'ignore')
+                        else:
+                            print "群组聊天没有定义...."
 
                 except KeyError as m:
                     if m.message != 'result':
@@ -293,11 +295,45 @@ class SmartQQ:
         result = self.url_request.post(self.url_dic['send_qun'], data=data).text
         return result
 
-    def get_group_info(self, groupid):
+    def _send_member_out_or_join(self, groupid):
         """
-        According the GroupID, to set the GroupName_dic and GroupMem_dic
+        Cheeck member_list for ever ten minutes and
+        send Welcome or Sorry info if someone join or leave
         """
-        self.log.info("Enter function groupInfo")
+        #while 1:
+        check_group_member = self.get_group_member(str(groupid), check_mem=True)
+        print set(check_group_member.keys()[2:])
+        print set(check_group_member.keys())
+        print set(check_group_member.keys()[2:]) - set(check_group_member.keys())
+        print set(check_group_member.keys()) - set(check_group_member.keys()[2:])
+        print 302
+        return 0
+
+
+    def get_group_member(self, groupid, check_mem=False):
+        """
+         According the GroupID,to set GroupMem_dic
+        """
+        tmp_dic = {}
+        stamp = time.time() * 1000
+        group_code = self.groupName[groupid]['code']  # qqqun code
+        url = self.url_dic['groupInfo'].format(group_code, self.vfwebqq, stamp)
+        try:
+            member_list = json.loads(self.url_request.get(url).text)['result']['minfo']
+            for member in member_list:
+                tmp_dic[str(member['uin'])] = member['nick']
+            self.groupMember[str(self.groupName[groupid]['gid'])] = tmp_dic
+            self.log.info('%s : Get groupMemberInfo success!' % self.groupName[groupid]['name'])
+            if check_mem:
+                return tmp_dic
+        except KeyError:
+            print "KeyError The line is 187"
+            print json.loads(self.url_request.get(url).text)
+
+    def get_group_list(self):
+        """
+         Get the GroupName_dic
+        """
         response = self.url_request.post(
             'http://s.web2.qq.com/api/get_group_name_list_mask2',
             {
@@ -313,24 +349,23 @@ class SmartQQ:
         if result['retcode'] == 0:
             for group in result['result']['gnamelist']:
                 self.groupName[str(group['gid'])] = group
+                if '/awk/sed' in group['name']:
+                    print group['name']
+                    check_thread = threading.Thread(target=self._send_member_out_or_join,
+                                                    args=(group['gid'], ))
+                    check_thread.setDaemon(True)
+                    check_thread.start()
+
+
             self.log.info('Get groupList success!')
-            stamp = time.time() * 1000
-            group_id = self.groupName[groupid]['code']     # qqqun code
-            tmp_dic = {}
-            url = self.url_dic['groupInfo'].format(group_id, self.vfwebqq, stamp)
-            try:
-                member_list = json.loads(self.url_request.get(url).text)['result']['minfo']
-                for member in member_list:
-                    tmp_dic[str(member['uin'])] = member['nick']
-                self.groupMember[str(self.groupName[groupid]['gid'])] = tmp_dic
-            except KeyError:
-                print "KeyError The line is 187"
-                print json.loads(self.url_request.get(url).text)
+        else:
+            self.log.error('Get groupList failed!')
 
     def main(self):
         self.get_comm_para()
         self.login()
 
-a = SmartQQ()
-a.main()
-a.poll()
+if __name__ == '__main__':
+    a = SmartQQ()
+    a.main()
+    a.poll()

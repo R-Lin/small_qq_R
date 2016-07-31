@@ -3678,3 +3678,36 @@
 2016-07-20 18:12:45,049 [ERROR] ValueError: 140 lines
 2016-07-20 18:13:00,154 [ERROR] No JSON object could be decoded
 2016-07-20 18:13:00,154 [ERROR] ValueError: 140 lines
+2016-07-31 23:38:12,013 [WARNING] Cookies_file time out
+2016-07-31 23:44:59,137 [ERROR] sequence item 0: expected string, list found
+2016-07-31 23:44:59,138 [ERROR] TypeError: 176 lines
+2016-07-31 23:44:59,138 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",56]],"from_uin":2343584009,"group_code":2343584009,"msg_id":556,"msg_type":0,"send_uin":2746875991,"time":1469979769,"to_uin":659030105}}],"retcode":0}
+
+2016-07-31 23:52:45,380 [ERROR] sequence item 0: expected string, list found
+2016-07-31 23:52:45,380 [ERROR] TypeError: 176 lines
+2016-07-31 23:52:45,381 [ERROR] {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",98],"这个怎么防"],"from_uin":2402742841,"group_code":2402742841,"msg_id":7659,"msg_type":0,"send_uin":1913031509,"time":1469980236,"to_uin":659030105}}],"retcode":0}
+
+2016-07-31 23:55:18,701 [ERROR] sequence item 1: expected string or Unicode, list found
+2016-07-31 23:55:18,703 [ERROR] TypeError: 176 lines
+2016-07-31 23:55:18,703 [ERROR] {"result":[{"poll_type":"discu_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"我九点多就提醒你们打分啦，事实证明，你们几条粉肠不够关心工作群。",["face",105]],"did":284939488,"from_uin":284939488,"msg_id":16750,"msg_type":0,"send_uin":3657660810,"time":1469980389,"to_uin":659030105}}],"retcode":0}
+
+2016-07-31 23:56:41,584 [ERROR] sequence item 0: expected string, list found
+2016-07-31 23:56:41,584 [ERROR] TypeError: 176 lines
+2016-07-31 23:56:41,585 [ERROR] {"result":[{"poll_type":"discu_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",5]],"did":284939488,"from_uin":284939488,"msg_id":16760,"msg_type":0,"send_uin":3408326164,"time":1469980472,"to_uin":659030105}}],"retcode":0}
+
+2016-08-01 00:05:17,154 [ERROR] sequence item 0: expected string, list found
+2016-08-01 00:05:17,154 [ERROR] TypeError: 176 lines
+2016-08-01 00:05:17,154 [ERROR] {"result":[{"poll_type":"discu_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",101]],"did":284939488,"from_uin":284939488,"msg_id":16787,"msg_type":0,"send_uin":3408326164,"time":1469980987,"to_uin":659030105}}],"retcode":0}
+
+2016-08-01 00:06:52,104 [ERROR] sequence item 1: expected string or Unicode, list found
+2016-08-01 00:06:52,104 [ERROR] TypeError: 176 lines
+2016-08-01 00:06:52,104 [ERROR] {"result":[{"poll_type":"discu_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"这个故事告诉我们，下班了也要关注工作群",["face",58]],"did":284939488,"from_uin":284939488,"msg_id":16795,"msg_type":0,"send_uin":3657660810,"time":1469981082,"to_uin":659030105}}],"retcode":0}
+
+2016-08-01 00:07:51,674 [ERROR] sequence item 1: expected string or Unicode, list found
+2016-08-01 00:07:51,676 [ERROR] TypeError: 176 lines
+2016-08-01 00:07:51,676 [ERROR] {"result":[{"poll_type":"discu_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"金龙的号码，都记一下，萝卜，你果然自带大坑，你的伙伴号码都没有",["face",80]],"did":284939488,"from_uin":284939488,"msg_id":16797,"msg_type":0,"send_uin":3657660810,"time":1469981142,"to_uin":659030105}}],"retcode":0}
+
+2016-08-01 00:08:46,474 [ERROR] sequence item 0: expected string, list found
+2016-08-01 00:08:46,474 [ERROR] TypeError: 176 lines
+2016-08-01 00:08:46,476 [ERROR] {"result":[{"poll_type":"discu_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],["face",5]],"did":284939488,"from_uin":284939488,"msg_id":16803,"msg_type":0,"send_uin":3408326164,"time":1469981197,"to_uin":659030105}}],"retcode":0}
+
