@@ -69,8 +69,12 @@ class Learn:
                 return answer.encode('utf8')
 
             elif result[0] in ['#weather#', '###']:
-                answer = self.weather.get_weather_report(result[1])
-                return answer
+                try:
+                    answer = self.weather.get_weather_report(result[1])
+                    return answer
+                except IndexError:
+                    return 'Parmeter is not enougth'
+
 
             else:
                 return (

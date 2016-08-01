@@ -41,7 +41,7 @@ class Weather:
                 ).text
             )
         except KeyError:
-            return "%s %s 仅支持中国部分市级城市!" % (city_name, type(city_name))
+            return "仅支持中国部分市级城市!"
 
         if weak:
             pass

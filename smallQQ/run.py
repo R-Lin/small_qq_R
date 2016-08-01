@@ -191,6 +191,10 @@ class SmartQQ:
             # Get friends markname
             for item in result['result']['marknames']:
                 self.friends_list[str(item['uin'])] = item['markname']
+        if self.friends_list:
+            self.log.info('Friends list initalized suessfully!')
+        else:
+            self.log.error('Friends list initalized failed!')
 
             # Get friends nick name!
             for item in result['result']['info']:
@@ -261,7 +265,7 @@ class SmartQQ:
                         print 133, self.groupName
                         print mess
                     else:
-                        self.log.info("Messages time out ! ")
+                        self.log.info("No new messages ! ")
 
                 except TypeError as e:
                     self.log.error(e)
