@@ -188,8 +188,15 @@ class SmartQQ:
         )
         result = json.loads(response.text)
         if result.get('retcode', None) == 0:
+            # Get friends markname
             for item in result['result']['marknames']:
                 self.friends_list[str(item['uin'])] = item['markname']
+
+            # Get friends nick name!
+            for item in result['result']['info']:
+                if str(item['uin']) not in self.friends_list:
+                    self.friends_list[str(item['uin'])] = item['nick']
+
             self.log.info("Query the friends list OK")
 
     def poll(self):
@@ -300,15 +307,31 @@ class SmartQQ:
         Cheeck member_list for ever ten minutes and
         send Welcome or Sorry info if someone join or leave
         """
-        #while 1:
-        check_group_member = self.get_group_member(str(groupid), check_mem=True)
-        print set(check_group_member.keys()[2:])
-        print set(check_group_member.keys())
-        print set(check_group_member.keys()[2:]) - set(check_group_member.keys())
-        print set(check_group_member.keys()) - set(check_group_member.keys()[2:])
-        print 302
-        return 0
 
+        while 1:
+            try:
+                check_new = self.get_group_member(str(groupid), check_mem=True)
+                time.sleep(300)
+                check_old, check_new = check_new, self.get_group_member(str(groupid), check_mem=True)
+                leave_mem = set(check_old.keys()) - set(check_new.keys())
+                join_mem = set(check_new.keys()) - set(check_old.keys())
+                if leave_mem:
+                    for mem_code in leave_mem:
+                        print 316,  leave_mem
+                        print self.send_messages(
+                            str(groupid),
+                            'I am sorry ! Group member @%s   was left!' % check_old[mem_code].encode('utf8')
+                        )
+                if join_mem:
+                    for mem_code in join_mem:
+                        print 320, join_mem
+                        print self.send_messages(
+                            str(groupid),
+                            'Welcome! New member @%s was joined!' % check_new[mem_code].encode('utf8')
+                            )
+
+            except:
+                self.log.error('Thread Exception aborted !')
 
     def get_group_member(self, groupid, check_mem=False):
         """
@@ -349,13 +372,12 @@ class SmartQQ:
         if result['retcode'] == 0:
             for group in result['result']['gnamelist']:
                 self.groupName[str(group['gid'])] = group
-                if '/awk/sed' in group['name']:
+                if '/awk/sed' in group['name'] or 'TestTest' in group['name']:
                     print group['name']
                     check_thread = threading.Thread(target=self._send_member_out_or_join,
                                                     args=(group['gid'], ))
                     check_thread.setDaemon(True)
                     check_thread.start()
-
 
             self.log.info('Get groupList success!')
         else:
