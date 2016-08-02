@@ -210,73 +210,74 @@ class SmartQQ:
         if not self.vfwebqq or not self.psessionid:
             self.log.info("Please login")
             self.login()
-        else:
-            data = {'r':json.dumps({
-                "ptwebqq": self.qtwebqq,
-                 "clientid": self.clientid,
-                 'psessionid': self.psessionid,
-                 "key": ""
-                 }
-            )}
-            while 1:
-                try:
-                    reponse = self.url_request.post(self.url_dic['pollMessage'], data=data).content
-                    mess = json.loads(reponse)
-                    for messages in mess['result']:
-                        from_uin = str(messages['value']['from_uin'])
-                        words = ''.join(messages['value']['content'][1:])
-                        if messages['poll_type'] == 'message':
-                            self.log.info("The 217 line %s : %s" % (
-                                self.friends_list.get(from_uin, 'None'),
-                                words
-                            ))
-                            result = self.learn.learn_or_call(words.replace("\n", r"\\n"))
-                            if result:
-                                print 224, self.send_single(from_uin, result.replace("\n", r"\\n"))
-                                print result
-                            else:
-                                print 227, result
-                                print self.friends_list.get(from_uin, 'None'), " : ", words
-
-                        elif messages['poll_type'] == 'group_message':
-                            if from_uin not in self.groupMember:
-                                self.log.info('GroupId : %s is not in dict GroupName' % from_uin)
-                                self.get_group_member(from_uin)
-                            send_uid = str(messages['value']['send_uin'])
-                            group_name = self.groupName[from_uin]['name']
-                            if isinstance(words, list):
-                                print 172, words
-                            else:
-                                # words = words.encode('utf8', 'ignore')
-                                if '/awk/' in group_name:
-                                    print '###########################TEST###########################'
-                                    result = self.learn.learn_or_call(words.replace("\n", r"\\n"))
-                                    if result:
-                                        print self.send_messages(from_uin, result)
-                                print group_name,
-                                print self.groupMember[from_uin][send_uid],  ":" + words.encode('utf8', 'ignore')
+        data = {'r':json.dumps({
+            "ptwebqq": self.qtwebqq,
+             "clientid": self.clientid,
+             'psessionid': self.psessionid,
+             "key": ""
+             }
+        )}
+        while 1:
+            try:
+                reponse = self.url_request.post(self.url_dic['pollMessage'], data=data).content
+                mess = json.loads(reponse)
+                for messages in mess['result']:
+                    from_uin = str(messages['value']['from_uin'])
+                    words = ' '.join(
+                        [i if isinstance(i, unicode) else str(i) for i in messages['value']['content'][1:]]
+                    )
+                    if messages['poll_type'] == 'message':
+                        self.log.info("The 217 line %s : %s" % (
+                            self.friends_list.get(from_uin, 'None'),
+                            words
+                        ))
+                        result = self.learn.learn_or_call(words.replace("\n", r"\\n"))
+                        if result:
+                            print 224, self.send_single(from_uin, result.replace("\n", r"\\n"))
+                            print result
                         else:
-                            print "群组聊天没有定义...."
+                            print 227, result
+                            print self.friends_list.get(from_uin, 'None'), " : ", words
 
-                except KeyError as m:
-                    if m.message != 'result':
-                        self.log.error('KeyError: 131 lines')
-                        self.log.error(m)
-                        print 133, self.groupName
-                        print mess
+                    elif messages['poll_type'] == 'group_message':
+                        if from_uin not in self.groupMember:
+                            self.log.info('GroupId : %s is not in dict GroupName' % from_uin)
+                            self.get_group_member(from_uin)
+                        send_uid = str(messages['value']['send_uin'])
+                        group_name = self.groupName[from_uin]['name']
+                        if isinstance(words, list):
+                            print 172, words
+                        else:
+                            # words = words.encode('utf8', 'ignore')
+                            if '/awk/' in group_name:
+                                print '###########################TEST###########################'
+                                result = self.learn.learn_or_call(words.replace("\n", r"\\n"))
+                                if result:
+                                    print self.send_messages(from_uin, result)
+                            print group_name,
+                            print self.groupMember[from_uin][send_uid],  ":" + words.encode('utf8', 'ignore')
                     else:
-                        self.log.info("No new messages ! ")
+                        print "群组聊天没有定义...."
 
-                except TypeError as e:
-                    self.log.error(e)
-                    self.log.error('TypeError: 176 lines')
-                    self.log.error(reponse)
+            except KeyError as m:
+                if m.message != 'result':
+                    self.log.error('KeyError: 131 lines')
+                    self.log.error(m)
+                    print 133, self.groupName
+                    print mess
+                else:
+                    self.log.info("No new messages ! ")
 
-                except ValueError as e:
-                    self.log.error(e)
-                    print 181, mess
-                    self.log.error('ValueError: 140 lines')
-                    print 183, self.url_request.post(self.url_dic['pollMessage'], data=data).text
+            except TypeError as e:
+                self.log.error(e)
+                self.log.error('TypeError: 176 lines')
+                self.log.error(reponse)
+
+            except ValueError as e:
+                self.log.error(e)
+                print 181, mess
+                self.log.error('ValueError: 140 lines')
+                print 183, self.url_request.post(self.url_dic['pollMessage'], data=data).text
 
     def send_single(self, to_uin, messages='Test'):
         """
@@ -389,7 +390,7 @@ class SmartQQ:
 
     def main(self):
         self.get_comm_para()
-        self.login()
+        # self.login()
 
 if __name__ == '__main__':
     a = SmartQQ()
