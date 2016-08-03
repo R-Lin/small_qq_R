@@ -290,6 +290,7 @@ class SmartQQ:
             ('clientid', self.clientid),
             ('psessionid', self.psessionid)
         )
+        # print 293, self.url_request.post('https://httpbin.org/post', data=data).text
         result = self.url_request.post(self.url_dic['send_message'], data=data).text
         return result
 
