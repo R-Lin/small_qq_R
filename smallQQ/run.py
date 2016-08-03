@@ -1,15 +1,15 @@
 # coding:utf8
+import cPickle
+import json
+import os
+import random
 import re
 import sys
-import random
-import time
-import json
 import threading
-import os
-import cPickle
+import time
 import requests
 import initialize
-import learning
+from smallQQ.extends import learning
 
 
 class SmartQQ:
@@ -19,7 +19,7 @@ class SmartQQ:
     def __init__(self):
         self.qtwebqq = None
         self.learn = learning.Learn()
-        self.cookie_file = "cookies.txt"
+        self.cookie_file = "config/cookies.txt"
         self.clientid = 53999199
         self.psessionid = ''
         self.vfwebqq = None
@@ -55,7 +55,7 @@ class SmartQQ:
         Downing the QRcode, and scan it to login
         """
         url = self.url_dic['qrcode'].format(self.para_dic['appid'])
-        with open('qrcode.png', 'wb') as f:
+        with open('config/qrcode.png', 'wb') as f:
             f.write(self.url_request.get(url, verify=True).content)
             self.log.info('Qrcode file is qrcode.png ! Please scan qrcode immediatety')
         url = self.url_dic['check_scan'].format(self.para_dic)
