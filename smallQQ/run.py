@@ -9,7 +9,7 @@ import threading
 import time
 import requests
 import initialize
-from smallQQ.extends import learning
+from extends import learning
 
 
 class SmartQQ:
