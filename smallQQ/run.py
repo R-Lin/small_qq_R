@@ -22,6 +22,7 @@ class SmartQQ:
         self.cookie_file = "config/cookies.txt"
         self.clientid = 53999199
         self.psessionid = ''
+        self.uin = ''
         self.vfwebqq = None
         self.friends_list = {}
         self.para_dic = {}
@@ -31,6 +32,7 @@ class SmartQQ:
         self.groupMember = {}
         self.url_dic = {
             'test': 'https://httpbin.org/post',
+            'self_info': 'http://s.web2.qq.com/api/get_self_info2?t=%s',
             'qrcode': 'https://ssl.ptlogin2.qq.com/ptqrshow?appid={0}&e=0&l=L&s=8&d=72&v=4',
             'get_online_buddies2': 'http://d1.web2.qq.com/channel/get_online_buddies2?vfwebqq={0}4&clientid={1}&psessionid={2}',
             'groupNameList': 'http://s.web2.qq.com/api/get_group_name_list_mask2',
@@ -175,13 +177,17 @@ class SmartQQ:
         """
         Return the friends_list
         """
+        self_info = json.loads(self.url_request.get(
+            self.url_dic['self_info'] % (time.time() * 1000)
+        ).text)
+        self.uin = self_info['result']['uin']
         response = self.url_request.post(
             'http://s.web2.qq.com/api/get_user_friends2',
             {
                 'r': json.dumps(
                     {
                         "vfwebqq": self.vfwebqq,
-                        "hash": self.get_hash('0659030105', self.qtwebqq),
+                        "hash": self.get_hash(self.uin, self.qtwebqq),
                     }
                 )
             },
