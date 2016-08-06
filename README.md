@@ -10,11 +10,11 @@
 ##已实现的功能
 * 1.能够收发私人消息和群消息, 讨论组消息尚未完善
 * 2.扩展功能库放在extends目录, 现在已接入功能有
-  *[Function] only support:
-  *1.#learn# 关键字 需要记录的内容
-  *2.#use# 关键字
-  *3.#show# 
-  *4.#weather# 中国市级城市名
+  * [Function] only support:
+  * 1.#learn# 关键字 需要记录的内容
+  * 2.#use# 关键字
+  * 3.#show# 
+  * 4.#weather# 中国市级城市名
 
 
 
