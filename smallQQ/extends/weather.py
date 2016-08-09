@@ -55,7 +55,7 @@ class Weather:
                 u'降雨量 : {0[pcpn]}mm\n'
                 u'天气状况 : {0[cond]}\n'
                 u'当前温度 : {0[tmp]}摄氏度\n'
-                u'体感温度 : {0[fl]}摄氏度\n'
+                u'体感温度 : {0[fl]}摄氏度'
             ).format(now_weather)
             return weather_report.encode('utf8')
 

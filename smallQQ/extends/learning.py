@@ -41,7 +41,6 @@ class Learn:
         """
         Record Leran "key" "word"
         """
-
         if re.findall(r'#[^#]*#', words):
             result = words.split()
             if result[0] == '#learn#':

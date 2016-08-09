@@ -54,19 +54,22 @@ class SmartQQ:
 
     def qrcode_login(self):
         """
-        Downing the QRcode, and scan it to login
+        Downing the QRcode, and scan it to login and saved the cookies file
         """
         url = self.url_dic['qrcode'].format(self.para_dic['appid'])
         with open('config/qrcode.png', 'wb') as f:
             f.write(self.url_request.get(url, verify=True).content)
             self.log.info('Qrcode file is qrcode.png ! Please scan qrcode immediatety')
         url = self.url_dic['check_scan'].format(self.para_dic)
+
         while 1:
             result = eval(self.url_request.get(url, verify=True).text[6:-3])
-            self.log.info(result[4])                # return login result
+            # Return Qrcode scaned result
+            self.log.info(result[4])
             if result[0] == '0':
                 redirect_url = result[2]
-                self.url_request.get(redirect_url)  # visit redirect_url to modify the session cookies
+                # Visit redirect_url to modify the session cookies
+                self.url_request.get(redirect_url)
                 break
             time.sleep(4)
 
@@ -89,6 +92,10 @@ class SmartQQ:
         self.para_dic['mibao_css'] = re.findall(r'g_mibao_css=encodeURIComponent\("(.+?)"\)', html.text)[0]
 
     def login(self):
+        """
+        If the cookies file existed and not out of the date , login with cookies file, otherwise calls qrcode_login
+        """
+        self.get_comm_para()
         if os.path.exists(self.cookie_file):
             cookies_file_mtime = os.stat(self.cookie_file).st_mtime
             during_time = time.time() - cookies_file_mtime
@@ -151,27 +158,27 @@ class SmartQQ:
         """
         提取自http://pub.idqqimg.com/smartqq/js/mq.js
         """
-        N = [0, 0, 0, 0]
+        n = [0, 0, 0, 0]
         for t in range(len(ptwebqq)):
-            N[t % 4] ^= ord(ptwebqq[t])
-        U = ["EC", "OK"]
-        V = [0, 0, 0, 0]
-        V[0] = int(uin) >> 24 & 255 ^ ord(U[0][0])
-        V[1] = int(uin) >> 16 & 255 ^ ord(U[0][1])
-        V[2] = int(uin) >> 8 & 255 ^ ord(U[1][0])
-        V[3] = int(uin) & 255 ^ ord(U[1][1])
-        U = [0, 0, 0, 0, 0, 0, 0, 0]
+            n[t % 4] ^= ord(ptwebqq[t])
+        u = ["EC", "OK"]
+        v = [0, 0, 0, 0]
+        v[0] = int(uin) >> 24 & 255 ^ ord(u[0][0])
+        v[1] = int(uin) >> 16 & 255 ^ ord(u[0][1])
+        v[2] = int(uin) >> 8 & 255 ^ ord(u[1][0])
+        v[3] = int(uin) & 255 ^ ord(u[1][1])
+        u = [0, 0, 0, 0, 0, 0, 0, 0]
         for T in range(8):
             if T % 2 == 0:
-                U[T] = N[T >> 1]
+                u[T] = n[T >> 1]
             else:
-                U[T] = V[T >> 1]
-        N = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
-        V = ""
-        for T in range(len(U)):
-            V += N[U[T] >> 4 & 15]
-            V += N[U[T] & 15]
-        return V
+                u[T] = v[T >> 1]
+        n = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+        v = ""
+        for T in range(len(u)):
+            v += n[u[T] >> 4 & 15]
+            v += n[u[T] & 15]
+        return v
 
     def get_friends_list(self):
         """
@@ -216,12 +223,13 @@ class SmartQQ:
         if not self.vfwebqq or not self.psessionid:
             self.log.info("Please login")
             self.login()
-        data = {'r':json.dumps({
-            "ptwebqq": self.qtwebqq,
-             "clientid": self.clientid,
-             'psessionid': self.psessionid,
-             "key": ""
-             }
+        data = {'r': json.dumps(
+            {
+                "ptwebqq": self.qtwebqq,
+                 "clientid": self.clientid,
+                 'psessionid': self.psessionid,
+                 "key": ""
+                 }
         )}
         while 1:
             try:
@@ -242,7 +250,6 @@ class SmartQQ:
                             print 224, self.send_single(from_uin, result.replace("\n", r"\\n"))
                             print result
                         else:
-                            print 227, result
                             print self.friends_list.get(from_uin, 'None'), " : ", words
 
                     elif messages['poll_type'] == 'group_message':
@@ -254,7 +261,7 @@ class SmartQQ:
                         if isinstance(words, list):
                             print 172, words
                         else:
-                            # words = words.encode('utf8', 'ignore')
+                            # My test group
                             if '/awk/' in group_name:
                                 print '###########################TEST###########################'
                                 result = self.learn.learn_or_call(words.replace("\n", r"\\n"))
@@ -270,6 +277,7 @@ class SmartQQ:
                     self.log.error('KeyError: 131 lines')
                     self.log.error(m)
                     print 133, self.groupName
+                    self.get_group_member(from_uin)
                     print mess
                 else:
                     self.log.info("No new messages ! ")
@@ -296,7 +304,6 @@ class SmartQQ:
             ('clientid', self.clientid),
             ('psessionid', self.psessionid)
         )
-        # print 293, self.url_request.post('https://httpbin.org/post', data=data).text
         result = self.url_request.post(self.url_dic['send_message'], data=data).text
         return result
 
@@ -319,7 +326,6 @@ class SmartQQ:
         Cheeck member_list for ever ten minutes and
         send Welcome or Sorry info if someone join or leave
         """
-
         while 1:
             try:
                 check_new = self.get_group_member(str(groupid), check_mem=True)
@@ -329,19 +335,16 @@ class SmartQQ:
                 join_mem = set(check_new.keys()) - set(check_old.keys())
                 if leave_mem:
                     for mem_code in leave_mem:
-                        print 316,  leave_mem
                         print self.send_messages(
                             str(groupid),
                             'I am sorry ! Group member @%s   was left!' % check_old[mem_code].encode('utf8')
                         )
                 if join_mem:
                     for mem_code in join_mem:
-                        print 320, join_mem
                         print self.send_messages(
                             str(groupid),
                             'Welcome! New member @%s was joined!' % check_new[mem_code].encode('utf8')
                             )
-
             except:
                 self.log.error('Thread Exception aborted !')
 
@@ -351,7 +354,8 @@ class SmartQQ:
         """
         tmp_dic = {}
         stamp = time.time() * 1000
-        group_code = self.groupName[groupid]['code']  # qqqun code
+        # QQ qun  code
+        group_code = self.groupName[groupid]['code']
         url = self.url_dic['groupInfo'].format(group_code, self.vfwebqq, stamp)
         try:
             member_list = json.loads(self.url_request.get(url).text)['result']['minfo']
@@ -386,8 +390,10 @@ class SmartQQ:
                 self.groupName[str(group['gid'])] = group
                 if '/awk/sed' in group['name'] or 'TestTest' in group['name']:
                     print group['name']
-                    check_thread = threading.Thread(target=self._send_member_out_or_join,
-                                                    args=(group['gid'], ))
+                    check_thread = threading.Thread(
+                        target=self._send_member_out_or_join,
+                        args=(group['gid'],)
+                    )
                     check_thread.setDaemon(True)
                     check_thread.start()
 
@@ -395,11 +401,7 @@ class SmartQQ:
         else:
             self.log.error('Get groupList failed!')
 
-    def main(self):
-        self.get_comm_para()
-        # self.login()
 
 if __name__ == '__main__':
     a = SmartQQ()
-    a.main()
     a.poll()
