@@ -358,16 +358,29 @@ class SmartQQ:
         group_code = self.groupName[groupid]['code']
         url = self.url_dic['groupInfo'].format(group_code, self.vfwebqq, stamp)
         try:
-            member_list = json.loads(self.url_request.get(url).text)['result']['minfo']
-            for member in member_list:
-                tmp_dic[str(member['uin'])] = member['nick']
+            member_list = json.loads(self.url_request.get(url).text)['result']
+            # 成员马甲
+            member_cards = member_list['cards']
+            for member in member_cards:
+                tmp_dic[str(member['muin'])] = member['card']
+
+            # 成员真实名称
+            member_nicks = member_list['minfo']
+
+            for member in member_nicks:
+                member_uin = str(member['uin'])
+                if member_uin not in tmp_dic:
+                    tmp_dic[member_uin] = member['nick']
+
             self.groupMember[str(self.groupName[groupid]['gid'])] = tmp_dic
             self.log.info('%s : Get groupMemberInfo success!' % self.groupName[groupid]['name'])
             if check_mem:
                 return tmp_dic
-        except KeyError:
-            print "KeyError The line is 187"
-            print json.loads(self.url_request.get(url).text)
+
+        except KeyError as e:
+            print "KeyError The line is 391"
+            print e
+
 
     def get_group_list(self):
         """
@@ -379,7 +392,7 @@ class SmartQQ:
                 'r': json.dumps(
                     {
                         "vfwebqq": self.vfwebqq,
-                        "hash": self.get_hash('0659030105', self.qtwebqq),
+                        "hash": self.get_hash(self.uin, self.qtwebqq),
                     }
                 )
             },
@@ -395,7 +408,7 @@ class SmartQQ:
                         args=(group['gid'],)
                     )
                     check_thread.setDaemon(True)
-                    check_thread.start()
+                    # check_thread.start()
 
             self.log.info('Get groupList success!')
         else:
