@@ -206,17 +206,16 @@ class SmartQQ:
             # Get friends markname
             for item in result['result']['marknames']:
                 self.friends_list[str(item['uin'])] = item['markname']
+
         if self.friends_list:
             self.log.info('Friends list initalized suessfully!')
-        else:
-            self.log.error('Friends list initalized failed!')
-
             # Get friends nick name!
             for item in result['result']['info']:
                 if str(item['uin']) not in self.friends_list:
                     self.friends_list[str(item['uin'])] = item['nick']
-
             self.log.info("Query the friends list OK")
+        else:
+            self.log.error('Friends list initalized failed!')
 
     def poll(self):
         """
