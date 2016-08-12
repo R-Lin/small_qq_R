@@ -75,7 +75,6 @@ class Learn:
                 except IndexError:
                     return 'Parmeter is not enougth'
 
-
             else:
                 return (
                     '[注意]: 请注意语法(空格)\n'

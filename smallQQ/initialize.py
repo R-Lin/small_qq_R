@@ -30,7 +30,7 @@ def log():
     file_stream = logging.FileHandler(logfile)
     terminal_stream = logging.StreamHandler()
 
-    log_format = logging.Formatter('%(asctime)s [%(levelname)s] %(message)s')
+    log_format = logging.Formatter('%(asctime)s [%(levelname)s] Line:%(lineno)d  %(message)s')
     file_stream.setFormatter(log_format)
     terminal_stream.setFormatter(log_format)
 

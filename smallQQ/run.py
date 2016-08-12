@@ -10,6 +10,7 @@ import time
 import requests
 import initialize
 from extends import learning
+from extends import broadcast
 
 
 class SmartQQ:
@@ -18,7 +19,6 @@ class SmartQQ:
     """
     def __init__(self):
         self.qtwebqq = None
-        self.learn = learning.Learn()
         self.cookie_file = "config/cookies.txt"
         self.clientid = 53999199
         self.psessionid = ''
@@ -28,6 +28,8 @@ class SmartQQ:
         self.para_dic = {}
         self.url_request = initialize.get_req()
         self.log = initialize.log()
+        self.learn = learning.Learn()
+        self.bc = broadcast.Broadcast()
         self.groupName = {}
         self.groupMember = {}
         self.url_dic = {
@@ -258,6 +260,12 @@ class SmartQQ:
                             self.get_group_member(from_uin)
                         send_uid = str(messages['value']['send_uin'])
                         group_name = self.groupName[from_uin]['name']
+                        send_member_name = self.groupMember[from_uin][send_uid]
+                        if from_uin in self.bc.gids_set:
+                            self.bc.handle_message(
+                                (from_uin, group_name, send_member_name, words),
+                                self.send_messages
+                            )
                         if isinstance(words, list):
                             print 172, words
                         else:
@@ -268,17 +276,15 @@ class SmartQQ:
                                 if result:
                                     print self.send_messages(from_uin, result)
                             print group_name,
-                            print self.groupMember[from_uin][send_uid],  ":" + words.encode('utf8', 'ignore')
+                            print send_member_name,  ":" + words.encode('utf8', 'ignore')
                     else:
                         print "群组聊天没有定义...."
 
             except KeyError as m:
                 if m.message != 'result':
-                    self.log.error('KeyError: 131 lines')
+                    self.log.error('%s not in Grount' % (self.get_group_member(from_uin)))
                     self.log.error(m)
-                    print 133, self.groupName
-                    self.get_group_member(from_uin)
-                    print mess
+
                 else:
                     self.log.info("No new messages ! ")
 
@@ -287,11 +293,11 @@ class SmartQQ:
                 self.log.error('TypeError: 176 lines')
                 self.log.error(reponse)
 
-            except ValueError as e:
-                self.log.error(e)
-                print 181, mess
-                self.log.error('ValueError: 140 lines')
-                print 183, self.url_request.post(self.url_dic['pollMessage'], data=data).text
+            # except ValueError as e:
+            #     self.log.error(e)
+            #     print 181, mess
+            #     self.log.error('ValueError: 140 lines')
+            #     print 183, self.url_request.post(self.url_dic['pollMessage'], data=data).text
 
     def send_single(self, to_uin, messages='Test'):
         """
@@ -347,6 +353,7 @@ class SmartQQ:
                             )
             except:
                 self.log.error('Thread Exception aborted !')
+                break
 
     def get_group_member(self, groupid, check_mem=False):
         """
@@ -354,11 +361,12 @@ class SmartQQ:
         """
         tmp_dic = {}
         stamp = time.time() * 1000
-        # QQ qun  code
+        # QQ群代码
         group_code = self.groupName[groupid]['code']
         url = self.url_dic['groupInfo'].format(group_code, self.vfwebqq, stamp)
         try:
             member_list = json.loads(self.url_request.get(url).text)['result']
+
             # 成员马甲
             member_cards = member_list['cards']
             for member in member_cards:
@@ -366,7 +374,6 @@ class SmartQQ:
 
             # 成员真实名称
             member_nicks = member_list['minfo']
-
             for member in member_nicks:
                 member_uin = str(member['uin'])
                 if member_uin not in tmp_dic:
@@ -378,9 +385,10 @@ class SmartQQ:
                 return tmp_dic
 
         except KeyError as e:
-            print "KeyError The line is 391"
-            print e
-
+            self.log.error(e)
+            self.log.error(
+                "%s may has no members " % self.groupName[groupid]['name']
+            )
 
     def get_group_list(self):
         """
@@ -399,17 +407,21 @@ class SmartQQ:
         )
         result = json.loads(response.text)
         if result['retcode'] == 0:
+            bc_ground_code = []
             for group in result['result']['gnamelist']:
+                # 收集广播群id
+                if group['name'] in self.bc.get_name():
+                    bc_ground_code.append(str(group['gid']))
+
                 self.groupName[str(group['gid'])] = group
-                if '/awk/sed' in group['name'] or 'TestTest' in group['name']:
-                    print group['name']
+                if '/awk/sed' in group['name']:
                     check_thread = threading.Thread(
                         target=self._send_member_out_or_join,
                         args=(group['gid'],)
                     )
                     check_thread.setDaemon(True)
-                    # check_thread.start()
-
+                    check_thread.start()
+            self.bc.gids_set = set(bc_ground_code)
             self.log.info('Get groupList success!')
         else:
             self.log.error('Get groupList failed!')
