@@ -1,4 +1,4 @@
-# coding:gbk
+# coding:utf-8
 import os
 import re
 import sys
@@ -170,7 +170,7 @@ class SmartQQ:
     @staticmethod
     def get_hash(uin, ptwebqq):
         """
-        ÌáÈ¡×Ôhttp://pub.idqqimg.com/smartqq/js/mq.js
+        æå–è‡ªhttp://pub.idqqimg.com/smartqq/js/mq.js
         """
         n = [0, 0, 0, 0]
         for t in range(len(ptwebqq)):
@@ -260,7 +260,7 @@ class SmartQQ:
                             words
                         ))
                         result = self.learn.learn_or_call(words)
-                        print "¡¾Ñ§Ï°¹¦ÄÜ´¦Àí½á¹û¡¿"
+                        print "ã€å­¦ä¹ åŠŸèƒ½å¤„ç†ç»“æœã€‘"
                         if result:
                             print 224, self.send_single(from_uin, result)
                             print result
@@ -290,7 +290,7 @@ class SmartQQ:
                         print group_name,
                         print send_member_name,  ":" + words.encode('utf8', 'ignore')
                     else:
-                        print "Èº×éÁÄÌìÃ»ÓĞ¶¨Òå...."
+                        print "ç¾¤ç»„èŠå¤©æ²¡æœ‰å®šä¹‰...."
 
             except KeyError as m:
                 if m.message != 'result':
@@ -314,7 +314,7 @@ class SmartQQ:
         """
         data = (
             ('r',
-            '{{"to":{0},"content":"[\\"{1}\\",[\\"font\\",{{\\"name\\":\\"ËÎÌå\\",\\"size\\":10,\\"style\\":[0,0,0],\\"color\\":\\"000000\\"}}]]","face":693,"clientid":{2},"msg_id":{3},"psessionid":"{4}","service_type":0}}'.format(
+            '{{"to":{0},"content":"[\\"{1}\\",[\\"font\\",{{\\"name\\":\\"å®‹ä½“\\",\\"size\\":10,\\"style\\":[0,0,0],\\"color\\":\\"000000\\"}}]]","face":693,"clientid":{2},"msg_id":{3},"psessionid":"{4}","service_type":0}}'.format(
              to_uin, messages, self.clientid, random.randint(0, 1000), self.psessionid)),
             ('clientid', self.clientid),
             ('psessionid', self.psessionid)
@@ -371,18 +371,18 @@ class SmartQQ:
         tmp_dic = {}
         stamp = time.time() * 1000
 
-        # QQÈº´úÂë
+        # QQç¾¤ä»£ç 
         group_code = self.groupName[groupid]['code']
         url = self.url_dic['groupInfo'].format(group_code, self.vfwebqq, stamp)
         try:
             member_list = json.loads(self.url_request.get(url).text)['result']
 
-            # ³ÉÔ±Âí¼×
+            # æˆå‘˜é©¬ç”²
             member_cards = member_list.get('cards', {})
             for member in member_cards:
                 tmp_dic[str(member['muin'])] = member['card']
 
-            # ³ÉÔ±ÕæÊµÃû³Æ
+            # æˆå‘˜çœŸå®åç§°
             member_nicks = member_list['minfo']
             for member in member_nicks:
                 member_uin = str(member['uin'])
@@ -420,7 +420,7 @@ class SmartQQ:
             bc_ground_code = []
             for group in result['result']['gnamelist']:
 
-                # ÊÕ¼¯¹ã²¥Èºid
+                # æ”¶é›†å¹¿æ’­ç¾¤id
                 if group['name'] in self.bc.get_name():
                     bc_ground_code.append(str(group['gid']))
 
@@ -443,7 +443,7 @@ if __name__ == '__main__':
         a = SmartQQ()
         a.poll()
     except KeyboardInterrupt as e:
-        action = raw_input("ĞèÒªÇå³ıCookiesÃ´? Y or N")
+        action = raw_input("éœ€è¦æ¸…é™¤Cookiesä¹ˆ? Y or N")
         path = os.getcwd()
         if action == 'Y':
             os.remove(a.cookie_file)
