@@ -1,4 +1,4 @@
-# coding:utf8
+# coding:gbk
 import os
 import re
 import sys
@@ -170,7 +170,7 @@ class SmartQQ:
     @staticmethod
     def get_hash(uin, ptwebqq):
         """
-        æå–è‡ªhttp://pub.idqqimg.com/smartqq/js/mq.js
+        ÌáÈ¡×Ôhttp://pub.idqqimg.com/smartqq/js/mq.js
         """
         n = [0, 0, 0, 0]
         for t in range(len(ptwebqq)):
@@ -255,11 +255,12 @@ class SmartQQ:
                         [i if isinstance(i, unicode) else str(i) for i in messages['value']['content'][1:]]
                     )
                     if messages['poll_type'] == 'message':
-                        self.log.info("The 217 line %s : %s" % (
+                        self.log.info("%s : %s" % (
                             self.friends_list.get(from_uin, 'None'),
                             words
                         ))
                         result = self.learn.learn_or_call(words)
+                        print "¡¾Ñ§Ï°¹¦ÄÜ´¦Àí½á¹û¡¿"
                         if result:
                             print 224, self.send_single(from_uin, result)
                             print result
@@ -289,7 +290,7 @@ class SmartQQ:
                         print group_name,
                         print send_member_name,  ":" + words.encode('utf8', 'ignore')
                     else:
-                        print "ç¾¤ç»„èŠå¤©æ²¡æœ‰å®šä¹‰...."
+                        print "Èº×éÁÄÌìÃ»ÓĞ¶¨Òå...."
 
             except KeyError as m:
                 if m.message != 'result':
@@ -299,9 +300,9 @@ class SmartQQ:
                 else:
                     self.log.info("No new messages ! ")
 
-            # except TypeError as e:
-            #     self.log.error(e)
-            #     self.log.error(reponse)
+            except TypeError as e:
+                self.log.error(e)
+                self.log.error(reponse)
 
             except ValueError as e:
                 self.log.error(e)
@@ -313,7 +314,7 @@ class SmartQQ:
         """
         data = (
             ('r',
-            '{{"to":{0},"content":"[\\"{1}\\",[\\"font\\",{{\\"name\\":\\"å®‹ä½“\\",\\"size\\":10,\\"style\\":[0,0,0],\\"color\\":\\"000000\\"}}]]","face":693,"clientid":{2},"msg_id":{3},"psessionid":"{4}","service_type":0}}'.format(
+            '{{"to":{0},"content":"[\\"{1}\\",[\\"font\\",{{\\"name\\":\\"ËÎÌå\\",\\"size\\":10,\\"style\\":[0,0,0],\\"color\\":\\"000000\\"}}]]","face":693,"clientid":{2},"msg_id":{3},"psessionid":"{4}","service_type":0}}'.format(
              to_uin, messages, self.clientid, random.randint(0, 1000), self.psessionid)),
             ('clientid', self.clientid),
             ('psessionid', self.psessionid)
@@ -370,18 +371,18 @@ class SmartQQ:
         tmp_dic = {}
         stamp = time.time() * 1000
 
-        # QQç¾¤ä»£ç 
+        # QQÈº´úÂë
         group_code = self.groupName[groupid]['code']
         url = self.url_dic['groupInfo'].format(group_code, self.vfwebqq, stamp)
         try:
             member_list = json.loads(self.url_request.get(url).text)['result']
 
-            # æˆå‘˜é©¬ç”²
+            # ³ÉÔ±Âí¼×
             member_cards = member_list.get('cards', {})
             for member in member_cards:
                 tmp_dic[str(member['muin'])] = member['card']
 
-            # æˆå‘˜çœŸå®åç§°
+            # ³ÉÔ±ÕæÊµÃû³Æ
             member_nicks = member_list['minfo']
             for member in member_nicks:
                 member_uin = str(member['uin'])
@@ -419,7 +420,7 @@ class SmartQQ:
             bc_ground_code = []
             for group in result['result']['gnamelist']:
 
-                # æ”¶é›†å¹¿æ’­ç¾¤id
+                # ÊÕ¼¯¹ã²¥Èºid
                 if group['name'] in self.bc.get_name():
                     bc_ground_code.append(str(group['gid']))
 
@@ -438,5 +439,16 @@ class SmartQQ:
 
 
 if __name__ == '__main__':
-    a = SmartQQ()
-    a.poll()
+    try:
+        a = SmartQQ()
+        a.poll()
+    except KeyboardInterrupt as e:
+        action = raw_input("ĞèÒªÇå³ıCookiesÃ´? Y or N")
+        path = os.getcwd()
+        if action == 'Y':
+            os.remove(a.cookie_file)
+        for tmp in ['config/qrcode.png', 'log/default.log']:
+            os.remove(os.path.join(path, tmp))
+
+
+
