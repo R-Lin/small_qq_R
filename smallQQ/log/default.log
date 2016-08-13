@@ -1,0 +1,16 @@
+2016-08-13 11:12:37,382 [ERROR] Line:292  'tuple' object does not support item assignment
+2016-08-13 11:12:37,382 [ERROR] Line:293  TypeError: 176 lines
+2016-08-13 11:12:37,382 [ERROR] Line:294  {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"http://qqweb.qq.com/m/qunactivity/activity.html?_wv=3&_bid=244&from=obj&activityid=340852964_1470723276664"],"from_uin":4093293615,"group_code":4093293615,"msg_id":31589,"msg_type":0,"send_uin":3636660616,"time":1471057957,"to_uin":659030105}}],"retcode":0}
+
+2016-08-13 11:13:00,812 [ERROR] Line:292  'tuple' object does not support item assignment
+2016-08-13 11:13:00,812 [ERROR] Line:293  TypeError: 176 lines
+2016-08-13 11:13:00,812 [ERROR] Line:294  {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"人在外面也不忘提醒"],"from_uin":4093293615,"group_code":4093293615,"msg_id":15463,"msg_type":0,"send_uin":3636660616,"time":1471057981,"to_uin":659030105}}],"retcode":0}
+
+2016-08-13 11:13:36,043 [ERROR] Line:292  'tuple' object does not support item assignment
+2016-08-13 11:13:36,043 [ERROR] Line:293  {"result":[{"poll_type":"group_message","value":{"content":[["font",{"color":"000000","name":"微软雅黑","size":10,"style":[0,0,0]}],"所以你是多怕明天没人"],"from_uin":4093293615,"group_code":4093293615,"msg_id":11458,"msg_type":0,"send_uin":2912620546,"time":1471058016,"to_uin":659030105}}],"retcode":0}
+
+2016-08-13 11:33:09,542 [ERROR] Line:296  No JSON object could be decoded
+2016-08-13 11:33:09,542 [ERROR] Line:297  ValueError: 140 lines
+2016-08-13 11:53:31,960 [WARNING] Line:119  Cookies_file time out
+2016-08-13 11:57:15,342 [ERROR] Line:292  None not in Grount
+2016-08-13 11:57:15,342 [ERROR] Line:293  '3548324494'
