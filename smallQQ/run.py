@@ -1,13 +1,14 @@
-# coding:utf8
-import cPickle
-import json
+# coding:utf-8
 import os
-import random
 import re
 import sys
-import threading
+import json
 import time
+import random
+import cPickle
 import requests
+import threading
+
 import initialize
 from extends import learning
 from extends import broadcast
@@ -18,40 +19,50 @@ class SmartQQ:
     A simple robot! For Fun!
     """
     def __init__(self):
+        # necessary parameter
         self.qtwebqq = None
-        self.cookie_file = "config/cookies.txt"
         self.clientid = 53999199
         self.psessionid = ''
         self.uin = ''
         self.vfwebqq = None
+
+        # static dictionary
+        self.groupName = {}
+        self.groupMember = {}
         self.friends_list = {}
         self.para_dic = {}
+
+        # extend parameter
+        self.config_file = {}
+        self.cookie_file = "config/cookies.txt"
         self.url_request = initialize.get_req()
         self.log = initialize.log()
         self.learn = learning.Learn()
         self.bc = broadcast.Broadcast()
-        self.groupName = {}
-        self.groupMember = {}
+
+        # API url dictionary
         self.url_dic = {
             'test': 'https://httpbin.org/post',
-            'self_info': 'http://s.web2.qq.com/api/get_self_info2?t=%s',
-            'qrcode': 'https://ssl.ptlogin2.qq.com/ptqrshow?appid={0}&e=0&l=L&s=8&d=72&v=4',
-            'get_online_buddies2': 'http://d1.web2.qq.com/channel/get_online_buddies2?vfwebqq={0}4&clientid={1}&psessionid={2}',
-            'groupNameList': 'http://s.web2.qq.com/api/get_group_name_list_mask2',
-            'groupInfo': 'http://s.web2.qq.com/api/get_group_info_ext2?gcode={0}&vfwebqq={1}&t={2}',
             'pollMessage': 'http://d1.web2.qq.com/channel/poll2',
             'send_qun': 'http://d1.web2.qq.com/channel/send_qun_msg2',
+            'self_info': 'http://s.web2.qq.com/api/get_self_info2?t=%s',
             'get_friends': 'http://s.web2.qq.com/api/get_user_friends2',
             'send_message': 'http://d1.web2.qq.com/channel/send_buddy_msg2',
+            'groupNameList': 'http://s.web2.qq.com/api/get_group_name_list_mask2',
+            'qrcode': 'https://ssl.ptlogin2.qq.com/ptqrshow?appid={0}&e=0&l=L&s=8&d=72&v=4',
+            'groupInfo': 'http://s.web2.qq.com/api/get_group_info_ext2?gcode={0}&vfwebqq={1}&t={2}',
             'para': (
                 'https://ui.ptlogin2.qq.com/cgi-bin/login?daid=164&target=self&style=16&mibao_css=m_webqq'
                 '&appid=501004106&enable_qlogin=0&no_verifyimg=1&s_url=http%3A%2F%2Fw.qq.com%2Fproxy.html&'
-                'f_url=loginerroralert&strong_login=1&login_state=10&t=20131024001'),
+                'f_url=loginerroralert&strong_login=1&login_state=10&t=20131024001'
+            ),
             'check_scan': (
                 'https://ssl.ptlogin2.qq.com/ptqrlogin?webqq_type=10&remember_uin=1&login2qq=1&aid={0[appid]}'
                 '&u1=http%3A%2F%2Fw.qq.com%2Fproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&ptredirect=0&ptlang='
                 '2052&daid=164&from_ui=1&pttype=1&dumy=&fp=loginerroralert&action=0-0-0&mibao_css={0[mibao_css]}'
-                '&t=undefined&g=1&js_type=0&js_ver={0[js_ver]}&login_sig={0[sign]}&pt_randsalt=0')
+                '&t=undefined&g=1&js_type=0&js_ver={0[js_ver]}&login_sig={0[sign]}&pt_randsalt=0'
+            ),
+            'get_online_buddies2': 'http://d1.web2.qq.com/channel/get_online_buddies2?vfwebqq={0}4&clientid={1}&psessionid={2}'
         }
 
     def qrcode_login(self):
@@ -83,7 +94,7 @@ class SmartQQ:
             )
             self.log.info("Cookies had saved")
 
-    def get_comm_para(self):
+    def set_comm_para(self):
         """
         Return a dict that contains appid, sign, js_ver, mibao_cass
         """
@@ -97,7 +108,7 @@ class SmartQQ:
         """
         If the cookies file existed and not out of the date , login with cookies file, otherwise calls qrcode_login
         """
-        self.get_comm_para()
+        self.set_comm_para()
         if os.path.exists(self.cookie_file):
             cookies_file_mtime = os.stat(self.cookie_file).st_mtime
             during_time = time.time() - cookies_file_mtime
@@ -156,7 +167,8 @@ class SmartQQ:
                 'Activate failed! Retcode: %s' % activate['retcode']
             )
 
-    def get_hash(self, uin, ptwebqq):
+    @staticmethod
+    def get_hash(uin, ptwebqq):
         """
         提取自http://pub.idqqimg.com/smartqq/js/mq.js
         """
@@ -242,13 +254,14 @@ class SmartQQ:
                         [i if isinstance(i, unicode) else str(i) for i in messages['value']['content'][1:]]
                     )
                     if messages['poll_type'] == 'message':
-                        self.log.info("The 217 line %s : %s" % (
+                        self.log.info("%s : %s" % (
                             self.friends_list.get(from_uin, 'None'),
                             words
                         ))
-                        result = self.learn.learn_or_call(words.replace("\n", r"\\n"))
+                        result = self.learn.learn_or_call(words)
+                        print "【学习功能处理结果】"
                         if result:
-                            print 224, self.send_single(from_uin, result.replace("\n", r"\\n"))
+                            print 224, self.send_single(from_uin, result)
                             print result
                         else:
                             print self.friends_list.get(from_uin, 'None'), " : ", words
@@ -257,6 +270,7 @@ class SmartQQ:
                         if from_uin not in self.groupMember:
                             self.log.info('GroupId : %s is not in dict GroupName' % from_uin)
                             self.get_group_member(from_uin)
+
                         send_uid = str(messages['value']['send_uin'])
                         group_name = self.groupName[from_uin]['name']
                         send_member_name = self.groupMember[from_uin][send_uid]
@@ -265,17 +279,15 @@ class SmartQQ:
                                 (from_uin, group_name, send_member_name, words),
                                 self.send_messages
                             )
-                        if isinstance(words, list):
-                            print 172, words
-                        else:
-                            # My test group
-                            if '/awk/' in group_name:
-                                print '###########################TEST###########################'
-                                result = self.learn.learn_or_call(words.replace("\n", r"\\n"))
-                                if result:
-                                    print self.send_messages(from_uin, result)
-                            print group_name,
-                            print send_member_name,  ":" + words.encode('utf8', 'ignore')
+
+                        # My test group
+                        if '/awk/' in group_name:
+                            print '###########################TEST###########################'
+                            result = self.learn.learn_or_call(words.replace("\n", r"\\n"))
+                            if result:
+                                print self.send_messages(from_uin, result)
+                        print group_name,
+                        print send_member_name,  ":" + words.encode('utf8', 'ignore')
                     else:
                         print "群组聊天没有定义...."
 
@@ -289,14 +301,11 @@ class SmartQQ:
 
             except TypeError as e:
                 self.log.error(e)
-                self.log.error('TypeError: 176 lines')
                 self.log.error(reponse)
 
-            # except ValueError as e:
-            #     self.log.error(e)
-            #     print 181, mess
-            #     self.log.error('ValueError: 140 lines')
-            #     print 183, self.url_request.post(self.url_dic['pollMessage'], data=data).text
+            except ValueError as e:
+                self.log.error(e)
+                self.log.error('ValueError: 140 lines')
 
     def send_single(self, to_uin, messages='Test'):
         """
@@ -360,6 +369,7 @@ class SmartQQ:
         """
         tmp_dic = {}
         stamp = time.time() * 1000
+
         # QQ群代码
         group_code = self.groupName[groupid]['code']
         url = self.url_dic['groupInfo'].format(group_code, self.vfwebqq, stamp)
@@ -367,7 +377,7 @@ class SmartQQ:
             member_list = json.loads(self.url_request.get(url).text)['result']
 
             # 成员马甲
-            member_cards = member_list['cards']
+            member_cards = member_list.get('cards', {})
             for member in member_cards:
                 tmp_dic[str(member['muin'])] = member['card']
 
@@ -408,6 +418,7 @@ class SmartQQ:
         if result['retcode'] == 0:
             bc_ground_code = []
             for group in result['result']['gnamelist']:
+
                 # 收集广播群id
                 if group['name'] in self.bc.get_name():
                     bc_ground_code.append(str(group['gid']))
@@ -427,5 +438,16 @@ class SmartQQ:
 
 
 if __name__ == '__main__':
-    a = SmartQQ()
-    a.poll()
+    try:
+        a = SmartQQ()
+        a.poll()
+    except KeyboardInterrupt as e:
+        action = raw_input("需要清除Cookies么? Y or N")
+        path = os.getcwd()
+        if action == 'Y':
+            os.remove(a.cookie_file)
+        for tmp in ['config/qrcode.png', 'log/default.log']:
+            os.remove(os.path.join(path, tmp))
+
+
+

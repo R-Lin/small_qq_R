@@ -1,4 +1,4 @@
-# Small_qq
+# Small_qq ( 持续完善中 )
 * 作者: Lin-R
 
 ##意愿
