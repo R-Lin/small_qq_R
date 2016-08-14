@@ -16,13 +16,13 @@
   详解: 能够将多个群合并到一起,通过机器人,将消息发送到另外在列表的群
   #####用法:
   1.打开广播开关:  
-  `&#8195;[Control]  `
-  &#8195;open_groupborad=1  
+  &#8195;`[Control]`  
+  &#8195;`open_groupborad=1`  
 
   2.配置广播群列表:  
-  &#8195;[Boradcast]  
-  &#8195;name1='test2'  
-  &#8195;name2='TestTest
+  &#8195;`[Boradcast]`  
+  &#8195;`name1='test2'`  
+  &#8195;`name2='TestTest`
 
 * 3.扩展功能库放在extends目录, 现在已接入功能有
   [Function] only support:  
