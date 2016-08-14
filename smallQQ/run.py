@@ -11,7 +11,7 @@ import threading
 
 import initialize
 from extends import learning
-from extends import broadcast
+from extends import switch
 
 
 class SmartQQ:
@@ -38,7 +38,7 @@ class SmartQQ:
         self.url_request = initialize.get_req()
         self.log = initialize.log()
         self.learn = learning.Learn()
-        self.bc = broadcast.Broadcast()
+        self.switch = switch.SwitchControl()
 
         # API url dictionary
         self.url_dic = {
@@ -274,8 +274,8 @@ class SmartQQ:
                         send_uid = str(messages['value']['send_uin'])
                         group_name = self.groupName[from_uin]['name']
                         send_member_name = self.groupMember[from_uin][send_uid]
-                        if from_uin in self.bc.gids_set:
-                            self.bc.handle_message(
+                        if from_uin in self.switch.gids_set:
+                            self.switch.handle_message(
                                 (from_uin, group_name, send_member_name, words),
                                 self.send_messages
                             )
@@ -343,7 +343,7 @@ class SmartQQ:
         while 1:
             try:
                 check_new = self.get_group_member(str(groupid), check_mem=True)
-                time.sleep(300)
+                time.sleep(150)
                 check_old, check_new = check_new, self.get_group_member(str(groupid), check_mem=True)
                 leave_mem = set(check_old.keys()) - set(check_new.keys())
                 join_mem = set(check_new.keys()) - set(check_old.keys())
@@ -359,8 +359,10 @@ class SmartQQ:
                             str(groupid),
                             'Welcome! New member @%s was joined!' % check_new[mem_code].encode('utf8')
                             )
-            except:
-                self.log.error('Thread Exception aborted !')
+
+                time.sleep(150)
+            except Exception as error:
+                self.lo.error('Thread Exception aborted !: %s' % error)
                 break
 
     def get_group_member(self, groupid, check_mem=False):
@@ -381,7 +383,7 @@ class SmartQQ:
             for member in member_cards:
                 tmp_dic[str(member['muin'])] = member['card']
 
-            # 成员真实名称
+            # 成员Q名
             member_nicks = member_list['minfo']
             for member in member_nicks:
                 member_uin = str(member['uin'])
@@ -418,20 +420,25 @@ class SmartQQ:
         if result['retcode'] == 0:
             bc_ground_code = []
             for group in result['result']['gnamelist']:
+                self.groupName[str(group['gid'])] = group
 
                 # 收集广播群id
-                if group['name'] in self.bc.get_name():
-                    bc_ground_code.append(str(group['gid']))
+                if self.switch.action_control['open_groupborad']:
+                    if group['name'] in self.switch.get_name('Boradcast'):
+                        bc_ground_code.append(str(group['gid']))
+                    self.switch.gids_set = set(bc_ground_code)
 
-                self.groupName[str(group['gid'])] = group
-                if '/awk/sed' in group['name']:
-                    check_thread = threading.Thread(
-                        target=self._send_member_out_or_join,
-                        args=(group['gid'],)
-                    )
-                    check_thread.setDaemon(True)
-                    check_thread.start()
-            self.bc.gids_set = set(bc_ground_code)
+                # 群成员进出检查
+                if self.switch.action_control['open_groupmember_check']:
+                    if group['name'] in self.switch.get_name('Monitor'):
+                        check_thread = threading.Thread(
+                            target=self._send_member_out_or_join,
+                            args=(group['gid'],)
+                        )
+                        check_thread.setDaemon(True)
+                        check_thread.start()
+
+
             self.log.info('Get groupList success!')
         else:
             self.log.error('Get groupList failed!')
