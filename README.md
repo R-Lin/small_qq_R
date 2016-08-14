@@ -9,7 +9,7 @@
 * 欢迎一起完善机器人! 
 
 ##使用步骤
-* 1.主配置文件:conf/main.conf, 可设置相应功能
+* 1.在主配置文件:conf/main.conf配置相应功能
 * 2.执行run.py, 然后打开config/qrcode.png 进行扫码登录
 
 ##已实现的功能
