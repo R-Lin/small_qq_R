@@ -20,7 +20,6 @@
   1.打开广播开关:  
   &#8195;[Control]  
   &#8195;open_groupborad=1  
-  
   2.配置广播群列表:  
   &#8195;[Boradcast]  
   &#8195;name1='test2'  
