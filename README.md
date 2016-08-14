@@ -24,12 +24,12 @@
   &#8195;`name1='test2'`  
   &#8195;`name2='TestTest`
 
-* 3.扩展功能库放在extends目录, 现在已接入功能有
-  [Function] only support:  
-  1.#learn# 关键字 需要记录的内容  
-  2.#use# 关键字  
-  3.#show#   
-  4.#weather# 中国市级城市名  
+* 3.扩展功能库放在extends目录, 现在已接入功能有  
+  `[Function] only support:`  
+  1.`#learn# 关键字 需要记录的内容`  
+  2.`#use# 关键字`  
+  3.`#show#`   
+  4.`#weather# 中国市级城市名`  
 
 
 
