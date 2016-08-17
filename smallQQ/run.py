@@ -362,8 +362,8 @@ class SmartQQ:
 
                 time.sleep(150)
             except Exception as error:
-                self.lo.error('Thread Exception aborted !: %s' % error)
-                break
+                self.log.error('Thread Exception aborted !: %s' % error)
+                # break
 
     def get_group_member(self, groupid, check_mem=False):
         """
@@ -437,7 +437,6 @@ class SmartQQ:
                         )
                         check_thread.setDaemon(True)
                         check_thread.start()
-
 
             self.log.info('Get groupList success!')
         else:
