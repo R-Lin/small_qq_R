@@ -11,7 +11,7 @@ class Learn:
     Record the simple learning
     """
     def __init__(self):
-        self.knowledge_file = 'kownledge.db'
+        self.knowledge_file = 'config/kownledge.db'
         self.knowledge_cache = self.load()
         self.length = 10
         self.weather = weather.Weather()
@@ -22,9 +22,7 @@ class Learn:
         """
         if os.path.exists(self.knowledge_file):
             with open(self.knowledge_file) as f:
-                knowledge_cache = cPickle.load(
-                    cPickle.load(f)
-                )
+                knowledge_cache = cPickle.load(f)
         else:
             knowledge_cache = {}
 

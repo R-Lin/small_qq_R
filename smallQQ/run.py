@@ -340,9 +340,9 @@ class SmartQQ:
         Cheeck member_list for ever ten minutes and
         send Welcome or Sorry info if someone join or leave
         """
+        check_new = self.get_group_member(str(groupid), check_mem=True)
         while 1:
             try:
-                check_new = self.get_group_member(str(groupid), check_mem=True)
                 time.sleep(150)
                 check_old, check_new = check_new, self.get_group_member(str(groupid), check_mem=True)
                 leave_mem = set(check_old.keys()) - set(check_new.keys())
@@ -360,7 +360,6 @@ class SmartQQ:
                             'Welcome! New member @%s was joined!' % check_new[mem_code].encode('utf8')
                             )
 
-                time.sleep(150)
             except Exception as error:
                 self.log.error('Thread Exception aborted !: %s' % error)
                 # break
