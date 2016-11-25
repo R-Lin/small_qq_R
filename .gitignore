@@ -1,0 +1,12 @@
+*.py[cod]
+
+*.so
+
+*.egg
+
+*.txt
+
+*.git
+*.kkk
+log
+test

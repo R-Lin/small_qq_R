@@ -6,6 +6,7 @@ import json
 import time
 import random
 import cPickle
+import webbrowser
 import requests
 import threading
 
@@ -73,6 +74,8 @@ class SmartQQ:
         with open('config/qrcode.png', 'wb') as f:
             f.write(self.url_request.get(url, verify=True).content)
             self.log.info('Qrcode file is qrcode.png ! Please scan qrcode immediatety')
+            png_path = os.path.join(os.getcwd(), 'config/qrcode.png')
+            webbrowser.open('file://' + png_path)
         url = self.url_dic['check_scan'].format(self.para_dic)
 
         while 1:
@@ -281,7 +284,7 @@ class SmartQQ:
                             )
 
                         # My test group
-                        if '/awk/' in group_name:
+                        if '/Awk/' in group_name:
                             print '###########################TEST###########################'
                             result = self.learn.learn_or_call(words.replace("\n", r"\\n"))
                             if result:
@@ -305,7 +308,10 @@ class SmartQQ:
 
             except ValueError as e:
                 self.log.error(e)
-                self.log.error('ValueError: 140 lines')
+                if '</body>' in reponse:
+                    self.log.error('Get html page,  json can not decode')
+                else:
+                    self.log.error(reponse)
 
     def send_single(self, to_uin, messages='Test'):
         """
@@ -343,7 +349,7 @@ class SmartQQ:
         check_new = self.get_group_member(str(groupid), check_mem=True)
         while 1:
             try:
-                time.sleep(150)
+                time.sleep(25)
                 check_old, check_new = check_new, self.get_group_member(str(groupid), check_mem=True)
                 leave_mem = set(check_old.keys()) - set(check_new.keys())
                 join_mem = set(check_new.keys()) - set(check_old.keys())
@@ -351,13 +357,13 @@ class SmartQQ:
                     for mem_code in leave_mem:
                         print self.send_messages(
                             str(groupid),
-                            'I am sorry ! Group member @%s   was left!' % check_old[mem_code].encode('utf8')
+                            '很遗憾 @%s 离开了 ' % check_old[mem_code].encode('utf8')
                         )
                 if join_mem:
                     for mem_code in join_mem:
                         print self.send_messages(
                             str(groupid),
-                            'Welcome! New member @%s was joined!' % check_new[mem_code].encode('utf8')
+                            '欢迎新成员: @%s 请修改群备注: 地区-昵称' % check_new[mem_code].encode('utf8')
                             )
 
             except Exception as error:
