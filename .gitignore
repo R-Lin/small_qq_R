@@ -2,12 +2,13 @@
 
 *.so
 
+*.png
 *.egg
 
 *.txt
 
 *.git
-*.kkk
+kkk
 log
 test
 eee
