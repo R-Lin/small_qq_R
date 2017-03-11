@@ -58,13 +58,19 @@ class SmartQQ:
                 'f_url=loginerroralert&strong_login=1&login_state=10&t=20131024001'
             ),
             'check_scan': (
-                'https://ssl.ptlogin2.qq.com/ptqrlogin?webqq_type=10&remember_uin=1&login2qq=1&aid={0[appid]}'
+                'https://ssl.ptlogin2.qq.com/ptqrlogin?ptqrtoken={0[ptqrtoken]}&webqq_type=10&remember_uin=1&login2qq=1&aid={0[appid]}'
                 '&u1=http%3A%2F%2Fw.qq.com%2Fproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&ptredirect=0&ptlang='
                 '2052&daid=164&from_ui=1&pttype=1&dumy=&fp=loginerroralert&action=0-0-0&mibao_css={0[mibao_css]}'
-                '&t=undefined&g=1&js_type=0&js_ver={0[js_ver]}&login_sig={0[sign]}&pt_randsalt=0'
+                '&g=1&js_type=0&js_ver={0[js_ver]}&login_sig={0[sign]}&pt_randsalt=0'
             ),
             'get_online_buddies2': 'http://d1.web2.qq.com/channel/get_online_buddies2?vfwebqq={0}4&clientid={1}&psessionid={2}'
         }
+
+    def qrcodn_check_hash(self, ):
+        e = 0
+        for i in self.url_request.cookies.get('qrsig'):
+            e += (e << 5) + ord(i)
+        self.para_dic['ptqrtoken'] = 2147483647 & e
 
     def qrcode_login(self):
         """
@@ -76,9 +82,10 @@ class SmartQQ:
             self.log.info('Qrcode file is qrcode.png ! Please scan qrcode immediatety')
             png_path = os.path.join(os.getcwd(), 'config/qrcode.png')
             webbrowser.open('file://' + png_path)
+        self.qrcodn_check_hash()
         url = self.url_dic['check_scan'].format(self.para_dic)
-
         while 1:
+            # result = eval(self.url_request.get(url, verify=True).text[6:-3])
             result = eval(self.url_request.get(url, verify=True).text[6:-3])
             # Return Qrcode scaned result
             self.log.info(result[4])
